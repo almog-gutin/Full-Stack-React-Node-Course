@@ -152,13 +152,6 @@ console.log(undefined == undefined); // true
 console.log(null == null); // true
 console.log(null === undefined); // false
 
-// Falsy values
-// null
-// undefined
-// false
-// 0
-// ""
-
 /* Operator Procedence */
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 console.log(10 - 15 > 20 - 10);
@@ -175,3 +168,203 @@ num1 = num2 = 10 + 5;
 
 // const avg = 10 + 10 / 2; // 15
 const avg = (10 + 10) / 2 / 2; // 10
+
+/* Template Literals/String Interplation */
+const almogName = 'Almog';
+const almogJob = 5;
+
+const sentenceV1 = "I'm " + almogName + " and I'm a " + almogJob + '.';
+console.log(sentenceV1);
+
+const sentenceV2 = `I'm ${almogName} and I'm a ${almogJob}.`;
+console.log(sentenceV2);
+
+/* Conditional Statements */
+const isOldEnough = 17 > 18;
+
+if (isOldEnough) {
+    console.log("I'm old enough to drink!");
+}
+
+if (isOldEnough) {
+    console.log("I'm old enough to drink!");
+} else {
+    console.log("I'm not old enught to drink!");
+}
+
+const idoBirthYear = 1986;
+
+let century;
+if (idoBirthYear < 2000) {
+    century = 20;
+} else {
+    century = 21;
+}
+
+console.log(century);
+
+/* Conversions (casting) */
+const yearStr = '1999';
+console.log(yearStr);
+console.log(Number(yearStr)); //Number(value)
+console.log(parseInt(yearStr)); // praseInt(string)
+console.log(+yearStr);
+
+console.log(Number('seven')); // NaN = Not a Number
+console.log(Number(true)); // 1
+console.log(Number(false)); // 0
+console.log(Number(true) + Number(true));
+
+const yearNum = 1999;
+console.log(yearNum);
+console.log(String(yearNum)); // '1999'
+console.log(yearNum + '');
+console.log(`${yearNum}`);
+
+console.log('23' - '3'); // 20
+console.log('20' - 'hgfds'); // NaN
+console.log('gfrde' - 'gfdes'); // NaN
+console.log('20' + '3'); // '203'
+console.log('20' / '5'); // 4
+console.log('20' * '5'); // 100
+console.log('20' % '5'); // 0
+
+console.log(+'10' + +'5');
+
+/* Falsy values */
+// null
+// undefined
+// false
+// 0
+// ""
+// NaN
+
+console.log(Boolean(0)); // false
+console.log(Boolean(null)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean('')); // false
+console.log(Boolean(NaN)); // false
+console.log(Boolean(1)); // true
+console.log(Boolean('Almog')); // true
+console.log(Boolean({})); // true
+
+/* Logical Operators */
+// ! && ||
+
+// Not operator
+console.log(!true); // false
+console.log(!''); // true
+console.log(!!''); // false
+
+// AND operator
+// &&
+const iLikeComputers = true;
+const iLikeCoding = true;
+const iLikeMornings = false;
+
+if (iLikeComputers && iLikeCoding) {
+    console.log('I like computers and coding!');
+}
+
+if (iLikeComputers && iLikeMornings) {
+    console.log('I like computers and mornings!');
+} else {
+    console.log('I like computers but I hate mornings!');
+}
+
+const number = 5;
+const haimName = 'Haim';
+
+if (number === 5 && haimName === 'Almog') {
+    console.log('This statmenet is true');
+} else {
+    console.log('This statement is false!');
+}
+
+if (number === '5' && haimName == 'Haim') {
+    console.log('This statmenet is true');
+} else {
+    console.log('This statement is false!');
+}
+
+// OR operator
+// ||
+
+if (iLikeComputers || iLikeMornings) {
+    console.log('I like computers or I like Mornings!');
+}
+
+// else if
+const day1 = 'wednesday';
+if (day1 === 'sunday' || day1 === 'monday') {
+    console.log('Today is sunday or monday');
+} else if (day1 === 'tuesday') {
+    console.log('Today is tuesday');
+} else {
+    console.log('Today is either wednesday, thursday, friday or saturday');
+}
+
+// switch
+const day2 = 'kjhgf';
+switch (day2) {
+    case 'sunday': {
+        console.log('Today is sunday');
+        console.log('Today is sunday');
+        break;
+    }
+    case 'monday':
+        console.log('Today is monday');
+        break;
+    case 'tuesday': {
+        console.log('Today is tuesday');
+        break;
+    }
+    case 'wednesday':
+    case 'thursday':
+    case 'friday':
+    case 'saturday': {
+        console.log('Today is either wednesday, thursday, friday or saturday');
+        break;
+    }
+    default: {
+        console.log('The value is not a valid weekday');
+    }
+}
+
+/* Trenary Operator */
+// ? :
+const amitAge = 33;
+
+if (amitAge >= 30 && amitAge < 40) {
+    console.log('Amit is in his Thirtys');
+    console.log('Amit is in his Thirtys');
+    console.log('Amit is in his Thirtys');
+    console.log('Amit is in his Thirtys');
+    console.log('Amit is in his Thirtys');
+} else {
+    console.log(`Amit is ${amitAge} years old`);
+    console.log(`Amit is ${amitAge} years old`);
+    console.log(`Amit is ${amitAge} years old`);
+    console.log(`Amit is ${amitAge} years old`);
+    console.log(`Amit is ${amitAge} years old`);
+    console.log(`Amit is ${amitAge} years old`);
+}
+
+amitAge >= 30 && amitAge < 40
+    ? console.log('Trenary: Amit is in his Thirtys')
+    : console.log(`Trenary: Amit is ${amitAge} years old`);
+
+let answer;
+if (amitAge >= 18) {
+    answer = 'Yes';
+} else {
+    answer = 'No';
+}
+console.log(answer);
+
+const amitAge2 = 10;
+let answer2 = amitAge2 >= 18 ? 'Yes' : 'No';
+console.log(answer2);
+
+const amitAge3 = 17;
+console.log(`Is Amit Old Enough? ${amitAge3 >= 18 ? 'Yes' : 'No'}`);
