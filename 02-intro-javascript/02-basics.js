@@ -368,3 +368,147 @@ console.log(answer2);
 
 const amitAge3 = 17;
 console.log(`Is Amit Old Enough? ${amitAge3 >= 18 ? 'Yes' : 'No'}`);
+
+/* Functions */
+// Feclaring a function
+function logger() {
+    console.log('Logger');
+}
+
+// Calling a function
+logger();
+logger();
+logger();
+logger();
+
+// Passing Data and Returing Data
+function juicer(apples, carrets) {
+    console.log(apples, carrets);
+}
+
+juicer(3);
+
+function juicer2(apples, carrets) {
+    if (typeof apples !== 'number' || typeof carrets !== 'number') {
+        return; // return undefined;
+    }
+
+    const juice = `Juice with ${apples} apples and ${carrets} carrets.`;
+    return juice;
+}
+
+console.log(juicer2(3, 'fghjk'));
+juicer2(3, 4);
+
+// Function Decloration
+console.log(calculateAgeDecloration(1999));
+
+function calculateAgeDecloration(birthYear) {
+    return 2022 - birthYear;
+}
+
+console.log(calculateAgeDecloration(1999));
+
+// Function Expression
+// console.log(calculateAgeExpression(1986)); // Invalid code
+
+const calculateAgeExpression = function (birthYear) {
+    return 2022 - birthYear;
+};
+
+console.log(calculateAgeExpression(1986));
+
+// Anonymous/Arrow Function
+// console.log(calculateAgeArrow(1989));
+// Cannot use the reserved word named "this"
+
+const calculateAgeArrow = (birthYear) => {
+    return 2022 - birthYear;
+};
+
+console.log(calculateAgeArrow(1989));
+
+// Functions calling other function
+const cutFruitPieces = (fruit) => {
+    return fruit * 4;
+};
+
+const fruitProcessor = (apples, oranges) => {
+    const applePieces = cutFruitPieces(apples); // 8
+    const orangePieces = cutFruitPieces(oranges); // 12
+
+    const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of orange.`;
+
+    return juice;
+};
+
+console.log(fruitProcessor(2, 3));
+
+/* Arrays */
+// How to create an array
+const arr = [];
+console.log(arr);
+
+const brother1 = 'Ido';
+const brother2 = 'Amit';
+const brother3 = 'Almog';
+
+const brothers = [brother1, brother2, brother3]; // ['Ido', 'Amit', 'Almog']
+console.log(brothers);
+
+// How to access the elements in an array
+console.log(brothers[1]);
+const brotherElement0 = brothers[0];
+console.log(brotherElement0);
+
+// How to get the length of an array
+console.log(brothers.length); // 3
+
+// How to get the last element in an array
+const lastBrotherElement = brothers[brothers.length - 1];
+console.log(lastBrotherElement);
+
+// What happens when trying to get an element that does not exist in an array
+console.log(brothers[100]); // undefined
+
+// How to change the value of an element in an array
+brothers[2] = 'Yoav';
+console.log(brothers);
+
+const almogFirstName = 'Almog';
+const almog = [almogFirstName, 'Gutin', 2022 - 1999, brothers];
+console.log(almog);
+
+const almogsBrothers = almog[almog.length - 1];
+console.log(almogsBrothers);
+
+console.log(almogsBrothers[1]);
+console.log(almog[almog.length - 1][1]); // Amit
+
+// push
+const cousins = ['Sagi', 'Yoav', 'Or'];
+cousins.push('Daniel');
+console.log(cousins);
+
+cousins.push('Tzeli', 'Elram', 'Avia', 'Elinor');
+console.log(cousins);
+
+// pop
+cousins.pop(); // Elinor
+console.log(cousins);
+
+const popedElement = cousins.pop(); // Avia
+console.log(popedElement);
+
+// includes
+const doesOrExistInArray = cousins.includes('Or'); // true
+console.log(doesOrExistInArray);
+
+const doesElinorExistInArray = cousins.includes('Elinor'); // false
+console.log(doesElinorExistInArray);
+
+if (cousins.includes('Yoav')) {
+    console.log('Yoav exists in the cousins array');
+} else {
+    console.log('Yoav does not exists in the cousins array');
+}
