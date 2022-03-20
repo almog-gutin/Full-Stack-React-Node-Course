@@ -24,7 +24,6 @@
 const team1Avg = (100 + 20 + 70) / 3;
 const team2Avg = (200 + 20 + 50) / 3;
 
-// Option 1
 if (team1Avg > team2Avg && team1Avg >= 100) {
     console.log('Team 1 has a higher score then team 2!');
 } else if (team1Avg < team2Avg && team2Avg >= 100) {
@@ -32,31 +31,5 @@ if (team1Avg > team2Avg && team1Avg >= 100) {
 } else if (team1Avg === team2Avg) {
     console.log('Both teams are equal to eachother!');
 } else {
-    console.log('None of the statements are true!');
+    console.log('None of statements are true!');
 }
-
-// Option 2
-let message1; // undefiend
-if (team1Avg > team2Avg && team1Avg >= 100) {
-    message1 = 'Team 1 has a higher score then team 2!';
-} else if (team1Avg < team2Avg && team2Avg >= 100) {
-    message1 = 'Team 2 has a higher score then team 1!';
-} else if (team1Avg === team2Avg) {
-    message1 = 'Both teams are equal to eachother!';
-} else {
-    message1 = 'None of the statements are true!';
-}
-
-console.log(message1);
-
-// Option 3
-let message2 = 'None of the statements are true!';
-if (team1Avg > team2Avg && team1Avg >= 100) {
-    message2 = 'Team 1 has a higher score then team 2!';
-} else if (team1Avg < team2Avg && team2Avg >= 100) {
-    message2 = 'Team 2 has a higher score then team 1!';
-} else if (team1Avg === team2Avg) {
-    message2 = 'Both teams are equal to eachother!';
-}
-
-console.log(message2);

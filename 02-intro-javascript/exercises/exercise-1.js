@@ -15,7 +15,7 @@ const person2Mass = 92,
     person2Height = 1.65;
 
 const person1BMI = person1Mass / person1Height ** 2;
-const person2BMI = person1Mass / (person2Height * person2Height);
+const person2BMI = person2Mass / (person2Height * person2Height);
 
 const isPerson2HigherThanPerson1 = person2BMI > person1BMI;
 

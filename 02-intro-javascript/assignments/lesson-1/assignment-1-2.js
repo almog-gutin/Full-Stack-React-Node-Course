@@ -12,7 +12,7 @@
 
 const country = 'Israel';
 const continent = 'Asia';
-const population = 9124000;
+const population = 9.217;
 const doILiveHere = true;
 
 // Part 1:
@@ -21,5 +21,5 @@ console.log(continent);
 console.log(population);
 console.log(doILiveHere);
 
-// Part 2:
+// Part 2;
 console.log(country, continent, population, doILiveHere);

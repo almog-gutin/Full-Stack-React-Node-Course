@@ -6,7 +6,6 @@
     Print out to the console str * 2 and see what happens.
 */
 
-const str = 'ff';
-
-console.log(str + 1); // ff1
-console.log(str * 1); // NaN
+const str = 'fdfdf';
+console.log(str + 1);
+console.log(str * 1);

@@ -8,17 +8,14 @@
 
 let populationInMillions = 9.124;
 
-// First Option:
+// Option 1:
 populationInMillions = populationInMillions + 1;
 console.log(populationInMillions);
 
-// Second Option:
+// Option 2:
 populationInMillions += 1;
 console.log(populationInMillions);
 
-// Third Option:
+// Option 3:
 populationInMillions++;
-console.log(populationInMillions);
-
-console.log(populationInMillions + 1);
 console.log(populationInMillions);

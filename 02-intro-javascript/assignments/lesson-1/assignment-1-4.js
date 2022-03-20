@@ -7,11 +7,10 @@
 */
 
 const population = 9124000;
-console.log(population);
 
-// First Option:
+// Option 1:
 console.log(population / 2);
 
-// Second Option:
+// Option 2:
 const calculation = population / 2;
 console.log(calculation);

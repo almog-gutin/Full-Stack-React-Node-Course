@@ -1,17 +1,25 @@
 /* 
-    צרו תוכנית שבעצם יש בו משתנה
-    bill - מייצג לי הסכום של חשבון במסעדה
-    
-    צור עוד משתנה שיכלול בו את החישוב של tip
-    1. tip
+    Create a function that has 2 parameters, both represent numbers.
+    The function will return the sum of both numbers.
 
-    איך מחשבים את הטיפ?ֿ
-    1. אם הסכום של החשבון של המסעדה גדול שווה ל-50 וקטן שווה ל-300. צריך להחפיל את הסכום ב-0.15
-    2. אם התנאי הזה לא מתקיים צריך לקחת את הסכום ולהחפיל אותו ב-0.2
-
-    בסוף התוכנית להדפיס הודעה שאומרת לי מה התוצאה של הסכום, מה התוצאה של החישוב של הטיפ והסכום של שתיהם.
-
-    תכתבו לי בשתי דרכים את התוכנית
-    1. if else
-    2. Trenary Operator
+    After calling the function print out the returned value.
 */
+
+function add(num1, num2) {
+    // const sum = num1 + num2;
+    // return sum;
+
+    return num1 + num2;
+}
+
+const number1 = 5;
+const number2 = 10;
+
+// const sum = number1 + number2;
+// console.log(sum);
+
+console.log(add(number1, number2));
+console.log(add(5, 10));
+
+const sum = add(number1, number2);
+console.log(sum);

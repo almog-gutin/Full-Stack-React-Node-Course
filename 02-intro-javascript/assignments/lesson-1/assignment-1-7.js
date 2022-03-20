@@ -5,7 +5,7 @@
     Print out the combination of both parts
 */
 
-const hello = 'Hello ';
+const hello = 'Hello';
 const world = 'World';
 
 // Option 1:
@@ -14,5 +14,3 @@ console.log(hello + ' ' + world);
 // Option 2:
 const sentence = hello + ' ' + world;
 console.log(sentence);
-
-console.log(hello, world);

@@ -12,6 +12,6 @@
 */
 
 const language = 'Hebrew';
-console.log(language);
 
-language = 'English';
+console.log(language);
+// language = 'English';

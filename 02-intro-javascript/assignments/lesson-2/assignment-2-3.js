@@ -13,46 +13,19 @@
 const person1BMI = 80 / 1.75 ** 2;
 const person2BMI = 65 / 1.6 ** 2;
 
-// Option 1
+// Option 1:
 if (person1BMI > person2BMI) {
     console.log(
-        `Person 1 who has a BMI of ${person1BMI} has a higher BMI than person 2 who has a BMI of ${person2BMI}.`
+        `Person 1 who has a BMI of ${person1BMI} has a higher BMI then Person 2 who has a BMI of ${person2BMI}.`
     );
 } else {
     console.log(
-        `Person 2 who has a BMI of ${person2BMI} has a higher BMI than person 2 who has a BMI of ${person1BMI}.`
+        `Person 2 who has a BMI of ${person2BMI} has a higher BMI then Person 1 who has a BMI of ${person1BMI}.`
     );
 }
 
-// Option 2
-let message; // undefined
-if (person1BMI > person2BMI) {
-    message = `Person 1 who has a BMI of ${person1BMI} has a higher BMI than person 2 who has a BMI of ${person2BMI}.`;
-} else {
-    message = `Person 2 who has a BMI of ${person2BMI} has a higher BMI than person 2 who has a BMI of ${person1BMI}.`;
-}
-console.log(message);
-
-// Option 3
-const message2 =
+// Option 2:
+const message =
     person1BMI > person2BMI
-        ? `Person 1 who has a BMI of ${person1BMI} has a higher BMI than person 2 who has a BMI of ${person2BMI}.`
-        : `Person 2 who has a BMI of ${person2BMI} has a higher BMI than person 2 who has a BMI of ${person1BMI}.`;
-
-console.log(message2);
-
-// Option 4:
-console.log(
-    person1BMI > person2BMI
-        ? `Person 1 who has a BMI of ${person1BMI} has a higher BMI than person 2 who has a BMI of ${person2BMI}.`
-        : `Person 2 who has a BMI of ${person2BMI} has a higher BMI than person 2 who has a BMI of ${person1BMI}.`
-);
-
-// Option 5:
-let message3 = `Person 2 who has a BMI of ${person2BMI} has a higher BMI than person 2 who has a BMI of ${person1BMI}.`;
-
-if (person1BMI > person2BMI) {
-    message3 = `Person 1 who has a BMI of ${person1BMI} has a higher BMI than person 2 who has a BMI of ${person2BMI}.`;
-}
-
-console.log(message3);
+        ? `Person 1 who has a BMI of ${person1BMI} has a higher BMI then Person 2 who has a BMI of ${person2BMI}.`
+        : `Person 2 who has a BMI of ${person2BMI} has a higher BMI then Person 1 who has a BMI of ${person1BMI}.`;
