@@ -1,5 +1,5 @@
 /* 
-    Create a proram taht contains 1 variable:
+    Create a program that contains 1 variable:
     1. arr - represents an array of numbers
 
     Create a function named "doesMinus1Exists" that recieves an array of numebrs as

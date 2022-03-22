@@ -512,3 +512,260 @@ if (cousins.includes('Yoav')) {
 } else {
     console.log('Yoav does not exists in the cousins array');
 }
+
+/* Objects */
+const orFirstName = 'Or';
+const orLastName = 'Elharar';
+const orAge = 27;
+
+console.log(orFirstName, orLastName, orAge);
+
+const or = {
+    firstName: 'Or',
+    lastName: 'Elharar',
+    age: 27,
+};
+
+console.log(or);
+
+const orArr = [orFirstName, orLastName, orAge];
+console.log(orArr);
+console.log(orArr[0]);
+
+// Dot Notation
+console.log(or.lastName);
+
+// Bracket Notation
+console.log(or['age']);
+
+const property = 'firstName';
+console.log(or[property]);
+
+switch (property) {
+    case 'firstName':
+        console.log(`The propery that we are trying to access is firstName and it's value: ${or[property]}`);
+        break;
+    case 'lastName':
+        console.log(`The propery that we are trying to access is lastName and it's value: ${or[property]}`);
+        break;
+}
+
+const property2 = 'first';
+console.log(or[property2 + 'Name']);
+
+const keyExample = 'fdgrfdgfg';
+console.log(or[keyExample === 'age' ? 'age' : 'firstName']);
+
+// Accessing Properties That Don't Exist
+console.log(or['job']); // undefined
+
+// Adding Properties To Objects
+const almogObj = {};
+
+console.log(almogObj); // {}
+
+almogObj.firstName = 'Almog';
+almogObj.lastName = 'Gutin';
+almogObj.NickName = 'GAGA';
+
+console.log(almogObj);
+
+// Object Methods
+// Method Expression
+const almogObj2 = {
+    firstName: 'Almog',
+    lastName: 'Gutin',
+    birthYear: 1999,
+    brothers: ['Ido', 'Amit'],
+
+    calculateAgeExpression: function (year) {
+        return 2022 - year;
+    },
+
+    calculateAgeExpressionShortand(year) {
+        return 2022 - year;
+    },
+};
+
+console.log(almogObj2.calculateAgeExpression(2000)); // 22
+console.log(almogObj2.calculateAgeExpression(almogObj2.birthYear)); // 23
+console.log(almogObj2.calculateAgeExpressionShortand(almogObj2.birthYear)); // 23
+
+// Method Arrow
+const almogObj3 = {
+    firstName: 'Almog',
+    lastName: 'Gutin',
+    birthYear: 1999,
+    brothers: ['Ido', 'Amit'],
+
+    calculateAgeArrowV1: (year) => {
+        return 2022 - year;
+    },
+
+    calculateAgeArrowV2: (year) => 2022 - year,
+};
+
+console.log(almogObj3.calculateAgeArrowV1(almogObj3.birthYear)); // 23
+console.log(almogObj3.calculateAgeArrowV2(1998)); // 24
+
+// Object Context (this)
+const almogObj4 = {
+    firstName: 'Almog',
+    birthYear: 1999,
+
+    calculateAge1: function (year) {
+        return 2022 - year;
+    },
+
+    calculateAge2: function () {
+        return 2022 - this.birthYear;
+    },
+};
+
+console.log(almogObj4.calculateAge1(almogObj4.birthYear)); // 23
+console.log(almogObj4.calculateAge2()); // 23
+
+const almogObj5 = {
+    firstName: 'Almog',
+    birthYear: 1999,
+
+    printObj() {
+        console.log(this);
+    },
+};
+
+almogObj5.printObj();
+console.log(almogObj5);
+
+const obj = {
+    firstName: 'Tamar',
+    lastName: 'Yron',
+
+    printArrow: () => {
+        console.log(this);
+        console.log(this.firstName, this.lastName);
+    },
+
+    printExpression() {
+        console.log(this);
+        console.log(this.firstName, this.lastName);
+    },
+};
+
+obj.printArrow();
+obj.printExpression();
+
+/* Loops */
+console.log('This is awesome 1');
+console.log('This is awesome 2');
+console.log('This is awesome 3');
+console.log('This is awesome 4');
+console.log('This is awesome 5');
+
+// For Loop
+for (let row = 0; row < 5; row++) {
+    console.log(`This is a loop: ${row + 1}`);
+}
+
+const years = [2000, 2001, 2002, 2003, 2004, 2005];
+for (let i = 0; i < years.length; i++) {
+    console.log(years[i]);
+}
+
+const years2 = [1986, 1989, 1987, 1999, 2002, 2005];
+const olderAges = [];
+
+for (let i = 0; i < years2.length; i++) {
+    const year = years2[i];
+
+    if (year < 2000) {
+        const calc = 2022 - year;
+
+        olderAges.push(calc);
+    }
+}
+
+console.log(olderAges);
+
+// Looping Backwards
+const years3 = [1986, 1989, 1987, 1999, 2002, 2005]; // length = 6
+for (let i = years3.length - 1; i >= 0; i--) {
+    console.log(years3[i]);
+}
+
+// Continue and Breaks
+const years4 = [1997, 1998, 1999]; // length = 3
+const ages = [];
+for (let i = 0; i < years4.length; i++) {
+    const year = years4[i];
+
+    if (year === 1998) {
+        continue;
+    }
+
+    ages.push(2022 - year);
+}
+
+// for (let i = 0; i < years4.length; i++) {
+//     const year = years4[i];
+
+//     if (year !== 1998) {
+//         ages.push(2022 - year);
+//     }
+// }
+
+// for (let i = 0; i < years4.length; i++) {
+//     const year = years4[i];
+
+//     if (year !== 1998) {
+//         ages.push(2022 - year);
+//     } else {
+//     }
+// }
+
+console.log(ages);
+
+const years5 = [1997, 1998, 1999]; // length = 3
+const ages2 = [];
+for (let i = 0; i < years5.length; i++) {
+    const year = years5[i];
+
+    if (year === 1998) {
+        break;
+    }
+
+    ages2.push(2022 - year);
+}
+
+console.log(ages2);
+
+// Nested Loops
+for (let exercise = 1; exercise <= 5; exercise++) {
+    for (let set = 1; set <= 3; set++) {
+        console.log(`Starting exercise ${exercise}, set ${set}`);
+    }
+}
+
+// While Loop
+let exercise = 1;
+while (exercise <= 5) {
+    console.log(`I am preforming exercise: ${exercise}`);
+
+    exercise++;
+}
+
+let exercise2 = 1;
+while (exercise2 <= 5) {
+    // for (let set = 1; set <= 3; set++) {
+    //     console.log(`Starting exercise ${exercise2}, set ${set}`);
+    // }
+
+    let set = 1;
+    while (set <= 3) {
+        console.log(`Starting exercise ${exercise2}, set ${set}`);
+
+        set++;
+    }
+
+    exercise2++;
+}

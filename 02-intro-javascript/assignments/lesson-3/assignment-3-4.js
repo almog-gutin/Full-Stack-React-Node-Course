@@ -9,7 +9,7 @@
 
     Add the data to the array in two ways.
 
-    Guess: pop method, access the index of the element in the array
+    Guess: push method, access the index of the element in the array
 */
 
 const firstName = 'Almog';

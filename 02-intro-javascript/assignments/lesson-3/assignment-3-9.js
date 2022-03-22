@@ -1,5 +1,5 @@
 /*
-    Create a funtion that recieves a numeber and returns true or false if the number
+    Create a funtion that recieves a number and returns true or false if the number
     is uneven.
 */
 

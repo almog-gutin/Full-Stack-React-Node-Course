@@ -1,5 +1,5 @@
 /* 
-    Create a funtion that recieves a numeber and returns a message if the number is
+    Create a funtion that recieves a number and returns a message if the number is
     positive or negative.
 */
 
