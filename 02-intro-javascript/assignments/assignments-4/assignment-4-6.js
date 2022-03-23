@@ -1,5 +1,7 @@
 /* 
+    Create a program that prints out to the console the multiplication table. 
 
+    Guess: Nested loop
 */
 
 for (let i = 1; i <= 10; i++) {
