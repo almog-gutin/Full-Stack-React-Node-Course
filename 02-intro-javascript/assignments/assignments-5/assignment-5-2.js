@@ -7,6 +7,31 @@
     The program will call the function and print to the console the value that was returned.
 */
 
+// const isPasswordValid = (password) => {
+//     if (password === '' || password === 'Password123') {
+//         return false;
+//     }
+
+//     for (let i = 0; i < password.length; i++) {
+//         const char = password[i];
+//         const convertedCharToNum = +char;
+
+//         if (!!convertedCharToNum || convertedCharToNum === 0) {
+//             return true;
+//         }
+//     }
+
+//     return false;
+// };
+
+// Falsly Values
+// 0
+// ''
+// NaN
+// false
+// udefined
+// null
+
 const isPasswordValid = (password) => {
     if (password === '' || password === 'Password123') {
         return false;
@@ -16,7 +41,7 @@ const isPasswordValid = (password) => {
         const char = password[i];
         const convertedCharToNum = +char;
 
-        if (!!convertedCharToNum) {
+        if (convertedCharToNum) {
             return true;
         }
     }
@@ -24,7 +49,9 @@ const isPasswordValid = (password) => {
     return false;
 };
 
-console.log(isPasswordValid('Password123'));
-console.log(isPasswordValid(''));
-console.log(isPasswordValid('Almog123'));
-console.log(isPasswordValid('Almog'));
+// console.log(isPasswordValid('Password123')); // false
+// console.log(isPasswordValid('')); // false
+// console.log(isPasswordValid('Almog123')); // true
+// console.log(isPasswordValid('Almog')); // false
+
+console.log(isPasswordValid('1'));

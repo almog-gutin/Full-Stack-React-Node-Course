@@ -1,7 +1,7 @@
 /* 
     Create a program which contains a function that returns the full name of a user.
 
-    The function will have a parameter which represents an object with 2 methods -
+    The function will have a parameter which represents an object with 2 properties -
     1. First name: text all lowercase.
     2. Last name: text all lowercase.
 
@@ -19,9 +19,19 @@ const getUserFullName = (user) => {
     return `${firstName} ${lastName}`;
 };
 
+const formatName = (name) => name.slice(0, 1).toUpperCase().concat(name.slice(1));
+
+const getUserFullName2 = (user) => {
+    const firstName = formatName(user.firstName);
+    const lastName = formatName(user.lastName);
+
+    return `${firstName} ${lastName}`;
+};
+
 const almogUser = {
     firstName: 'almog',
     lastName: 'gutin',
 };
 
 console.log(getUserFullName(almogUser));
+console.log(getUserFullName2(almogUser));
