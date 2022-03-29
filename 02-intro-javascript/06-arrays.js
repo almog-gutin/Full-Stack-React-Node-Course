@@ -154,12 +154,12 @@ const indexOf = (arr, searchElement, fromIndex) => {
 };
 
 // at - Returns the element at the index you specified
-const arr7 = ['dog', 'cat', 'rabbit', 'sheep', 'pig'];
+// const arr7 = ['dog', 'cat', 'rabbit', 'sheep', 'pig'];
 
-console.log(arr7.at(2)); // rabbit
-console.log(arr7.at(arr7.length - 1)); // pig
-console.log(arr7.at(-1)); // pig
-console.log(arr7.length(100)); // undefined
+// console.log(arr7.at(2)); // rabbit
+// console.log(arr7.at(arr7.length - 1)); // pig
+// console.log(arr7.at(-1)); // pig
+// console.log(arr7.length(100)); // undefined
 
 const at = (arr, index) => {
     if (index < 0) {
@@ -323,3 +323,5 @@ const filter = (arr, callback) => {
 
     return filteredArray;
 };
+
+filter([10, 20, 30, 40], (element) => element < 30);

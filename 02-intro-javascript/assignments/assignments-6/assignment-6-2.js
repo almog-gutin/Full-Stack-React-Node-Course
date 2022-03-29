@@ -16,11 +16,15 @@
 */
 
 const printAvgHighLow = (numbers) => {
+    if (numbers.length === 0) {
+        return;
+    }
+
     let highest = numbers[0];
     let lowest = numbers[0];
-    let sum = 0;
+    let sum = numbers[0];
 
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 1; i < numbers.length; i++) {
         const number = numbers[i];
 
         if (number > highest) {

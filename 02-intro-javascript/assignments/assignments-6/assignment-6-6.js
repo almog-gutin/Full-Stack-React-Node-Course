@@ -1,5 +1,4 @@
 /* 
-
     Create a program which will contain a function.
     
     The function will get a parameter which will represent an array of strings, where each string will be written in kebab case.
@@ -33,7 +32,7 @@ const transformToCamelCaseV1 = (arr) => {
             }
         }
 
-        camelCaseStr = str
+        const camelCaseStr = str
             .slice(0, underscoreIndex)
             .concat(str.slice(underscoreIndex + 1, underscoreIndex + 2).toUpperCase(), str.slice(underscoreIndex + 2));
 
@@ -43,27 +42,23 @@ const transformToCamelCaseV1 = (arr) => {
     return camelCaseArr;
 };
 
-const transformToCamelCaseV2 = (arr) =>
-    arr.map((str) => {
-        let underscoreIndex = 0;
+// const transformToCamelCaseV2 = (arr) =>
+//     arr.map((str) => {
+//         let underscoreIndex = 0;
 
-        for (let j = 0; j < str.length; j++) {
-            const char = str[j];
+//         for (let j = 0; j < str.length; j++) {
+//             const char = str[j];
 
-            if (char === '_') {
-                underscoreIndex = j;
-                break;
-            }
-        }
+//             if (char === '_') {
+//                 underscoreIndex = j;
+//                 break;
+//             }
+//         }
 
-        camelCaseStr = str
-            .slice(0, underscoreIndex)
-            .concat(str.slice(underscoreIndex + 1, underscoreIndex + 2).toUpperCase(), str.slice(underscoreIndex + 2));
+//         camelCaseStr = str
+//             .slice(0, underscoreIndex)
+//             .concat(str.slice(underscoreIndex + 1, underscoreIndex + 2).toUpperCase(), str.slice(underscoreIndex + 2));
 
-        return camelCaseStr;
-    });
-
-const kebabArr = ['first_name', 'last_name', 'underscore_case'];
-
-console.log(transformToCamelCaseV1(kebabArr));
-console.log(transformToCamelCaseV2(kebabArr));
+//         return camelCaseStr;
+//     });
+// console.log(transformToCamelCaseV2(kebabArr));

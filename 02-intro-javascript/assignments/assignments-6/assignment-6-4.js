@@ -16,6 +16,13 @@ const dogYearsToHumanYears = (dogAges) => {
     return dogAges.map((dogAge) => dogAge * 7).filter((dogAge) => dogAge <= 40);
 };
 
+const dogYearsToHumanYears2 = (dogAges) => {
+    const mappedArr = dogAges.map((dogAge) => dogAge * 7); // []
+    const filteredArray = mappedArr.filter((dogAge) => dogAge <= 40);
+
+    return filteredArray;
+};
+
 const dogAges = [2, 5, 4, 7, 6, 3, 4, 9];
 
 console.log(dogYearsToHumanYears(dogAges));
