@@ -163,7 +163,7 @@ class Person2Shorthand {
     }
 }
 
-const almog2 = new Person2Shorthand('Almog', 'Gutin', 1999, true, 'software developer');
+const almog2 = new Person2('Almog', 'Gutin', 1999, true, 'software developer');
 const amit2 = new Person2Shorthand('Amit', 'Gutin', 1989, '', 'product marketing team lead');
 
 console.log(almog2.birthYear);
@@ -185,7 +185,7 @@ class Person3 {
 
 const almog3 = new Person3('123456789', 'Almog Gutin', 1999);
 console.log(almog3.id); // undefiend
-// console.log(almog3.#id);
+// console.log(almog3.#id); // Invalid Code
 console.log(almog3.getId());
 
 class Person4 {
@@ -206,10 +206,12 @@ class Person4 {
 
 const almog4 = new Person4('ALMOG GUTIN', 1999);
 console.log(almog4);
+// almog4.formatName('Almog Gutin '); // Invalid Code
 
 // Static Properties & Methods
 class School {
     static schoolsCount = 0;
+    static schoolNamesArr = [];
 
     constructor(name, city) {
         this.name = name;
@@ -217,6 +219,7 @@ class School {
 
         // this.constructor allows you do access to static properties
         this.constructor.schoolsCount++;
+        this.constructor.schoolNamesArr.push(name);
     }
 
     static print() {
@@ -226,9 +229,104 @@ class School {
 
 const school1 = new School('Heschel', 'New York City');
 const school2 = new School('Boyar', 'Jerusalem');
+console.log(school1.schoolsCount); // undefined
 
 console.log(school1);
 console.log(school2);
 
 console.log(School.schoolsCount);
 School.print();
+
+console.log(School.schoolNamesArr);
+
+/* Class Inheritence */
+class Person5 {
+    constructor(id, firstName, lastName, birthYear) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+    }
+
+    calcAge() {
+        const currentDate = new Date();
+
+        return currentDate.getFullYear() - this.birthYear;
+    }
+}
+
+const almogPerson = new Person5('1234545677654', 'Almog', 'Gutin', 1999);
+console.log(almogPerson.calcAge());
+
+class Student {
+    constructor(id, firstName, lastName, birthYear, studentId, classes) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+        this.studentId = studentId;
+        this.classes = classes;
+    }
+
+    calcAge() {
+        const currentDate = new Date();
+
+        return currentDate.getFullYear() - this.birthYear;
+    }
+
+    getAmountOfLessons() {
+        return 10;
+    }
+}
+
+class StudentInheritence extends Person5 {
+    constructor(id, firstName, lastName, birthYear, studentId, classes) {
+        super(id, firstName, lastName, birthYear);
+
+        this.studentId = studentId;
+        this.classes = classes;
+    }
+
+    getAmountOfLessons() {
+        return 10;
+    }
+}
+
+const almogStudent = new StudentInheritence('12345234', 'Almog', 'Gutin', 1999, 'H-12345', ['English', 'Math']);
+console.log(almogStudent);
+console.log(almogStudent.calcAge());
+
+// Polymorphysim
+class Person6 {
+    constructor(id, firstName, lastName, birthYear) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
+    }
+
+    calcAge(date) {
+        return date.getFullYear() - this.birthYear;
+    }
+}
+
+// Polymorphism does not work in JS however in other programmming languages
+class Soldier extends Person6 {
+    constructor(id, firstName, lastName, birthYear, soldierId, platoon, rank) {
+        super(id, firstName, lastName, birthYear);
+
+        this.soldierId = soldierId;
+        this.platoon = platoon;
+        this.rank = rank;
+    }
+
+    calcAge() {
+        const currentDate = new Date();
+
+        return currentDate.getFullYear() - this.birthYear + 3;
+    }
+}
+
+const soldier = new Soldier('123456y7u', 'Almog', 'Gutin', 1999, '234567654', 'Granit', 'private');
+console.log(soldier.calcAge());
+console.log(soldier.calcAge(new Date(2018, 2)));
