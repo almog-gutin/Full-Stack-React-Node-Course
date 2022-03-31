@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=s, initial-scale=1.0" />
+        <title>Forms</title>
+    </head>
+
+    <body>
+        <!-- input - inline element -->
+        <h1>Input Examples</h1>
+
+        <input type="text" />
+        <input type="color" />
+        <input type="date" />
+        <input type="email" />
+        <input type="password" />
+        <input type="number" />
+        <input type="time" />
+        <input type="range" />
+        <input type="checkbox" />
+        <input type="radio" />
+
+        <!-- form - block element -->
+        <!-- label - inline element -->
+        <form action="https://www.google.com">
+            <h1>Form Example</h1>
+
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Your Name" required name="full-name" />
+            </div>
+
+            <br />
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="example@gmail.com" required name="email" />
+            </div>
+
+            <br />
+
+            <!-- <div>
+                <label for="birth-date">Birth Date:</label>
+                <input type="date" id="birth-date" value="2022-02-08" />
+            </div> -->
+
+            <div>
+                <label for="birth-date">Birth Date:</label>
+                <input type="date" id="birth-date" required name="birth-date" />
+            </div>
+
+            <br />
+
+            <div>
+                <input type="checkbox" id="children" name="children" />
+                <label for="children">I have children</label>
+            </div>
+
+            <br />
+
+            <div>
+                <input type="checkbox" id="married" checked name="married" />
+                <label for="married">I'm married</label>
+            </div>
+
+            <br />
+
+            <div>
+                <h4>Choose your favoriate web language</h4>
+                <input type="radio" id="html" value="html" name="favoriate-lanugage" />
+                <label for="html">HTML</label>
+
+                <br />
+
+                <input type="radio" id="javascript" value="javascript" name="favoriate-lanugage" />
+                <label for="javascript">JavaScript</label>
+            </div>
+
+            <br />
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

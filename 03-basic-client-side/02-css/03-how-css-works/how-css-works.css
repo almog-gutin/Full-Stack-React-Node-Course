@@ -1,0 +1,46 @@
+/* p {
+    background-color: blueviolet;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p {
+    background-color: aqua;
+    color: green;
+} */
+
+#box-red,
+#box-red-2 {
+    width: 400px;
+    height: 200px;
+    background-color: red;
+    color: coral;
+}
+
+.box {
+    width: 200px;
+    height: 150px;
+    background-color: pink;
+    color: chartreuse;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    color: aquamarine;
+}
+
+* {
+    color: cornflowerblue;
+}
+
+form {
+    background-color: chocolate;
+}
+
+form #form-box {
+    width: 300px;
+    background-color: violet;
+}

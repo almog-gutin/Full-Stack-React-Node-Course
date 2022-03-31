@@ -1,0 +1,18 @@
+.title {
+    /* text-align: start; */
+    /* text-align: end; */
+    text-align: center;
+
+    /* color: aqua; */
+    /* color: rgb(230, 20, 10); */
+    /* color: #f4a3a5; */
+    color: aqua;
+}
+
+.paragraph {
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+
+    /* Browser default is 16px */
+    font-size: 20px;
+}

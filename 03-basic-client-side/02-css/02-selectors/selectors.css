@@ -1,0 +1,49 @@
+/* Universal Selector */
+* {
+}
+
+/* Id Selector */
+#title {
+    background-color: brown;
+    color: beige;
+}
+
+/* Class Selector */
+.paragraph {
+    background-color: cadetblue;
+    color: azure;
+}
+
+/* Element/Tag Selector */
+button {
+    background-color: blue;
+    color: white;
+    border-color: pink;
+}
+
+/* #label-1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#label-2 {
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+#label-1,
+#label-2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* .form-label {
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+/* General Child Selector */
+form label {
+    font-size: 20px;
+    font-weight: bold;
+}

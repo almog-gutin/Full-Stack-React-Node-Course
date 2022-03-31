@@ -1,0 +1,110 @@
+.box-1 {
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    background-color: tomato;
+}
+
+.box-2 {
+    width: 25%;
+    height: 25%;
+    background-color: red;
+}
+
+.container-2 {
+    width: 300px;
+    height: 300px;
+    /* padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 15px;
+    padding-left: 10px; */
+
+    /* top right bottom left */
+    /* padding: 20px 40px 15px 10px; */
+
+    /* top right-left bottom */
+    /* padding: 10px 20px 15px; */
+
+    /* top-bottom right-left */
+    /* padding: 10px 20px; */
+
+    /* top-bottom-right-left */
+    padding: 20px;
+    background-color: brown;
+}
+
+.container-2 .content {
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.container-3 {
+    width: 250px;
+    height: 250px;
+    background-color: thistle;
+
+    /* size color style */
+    /* border-top: 10px black solid;
+    border-right: 20px blue solid;
+    border-bottom: 30px red solid;
+    border-left: 40px turquoise solid; */
+    border: 10px gray double;
+}
+
+.container-4,
+.container-5,
+.container-6 {
+    width: 150px;
+    height: 150px;
+    background-color: cornflowerblue;
+}
+
+.container-4 {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-left: 12px;
+
+    /* top right bottom left */
+    /* margin: 20px 40px 15px 10px; */
+
+    /* top right-left bottom */
+    /* margin: 10px 20px 15px; */
+
+    /* top-bottom right-left */
+    /* margin: 10px 20px; */
+
+    /* top-bottom-right-left */
+    margin: 20px;
+}
+
+.container-6 {
+    /* margin: 0 auto; */
+    margin-left: auto;
+}
+
+.container-7 {
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    background-color: aqua;
+    margin: 10px;
+    padding: 10px;
+}
+
+.container-7 .content-2 {
+    box-sizing: border-box;
+    width: 20%;
+    height: 20%;
+    background-color: bisque;
+    /* max-width: 100px;
+    max-height: 150px; */
+    min-width: 200px;
+    min-height: 150px;
+}
