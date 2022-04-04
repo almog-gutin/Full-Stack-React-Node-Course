@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.main-header {
+    height: 96px;
+    padding: 28px 0;
+    background-color: blue;
+}
+
+.main-header h1 {
+    margin: 0;
+
+    text-align: center;
+    color: white;
+}
+
+main {
+    padding: 16px 32px;
+}
+
+.signup-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.gender {
+    text-align: center;
+}

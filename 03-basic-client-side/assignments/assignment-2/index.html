@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+
+        <link href="./styles.css" rel="stylesheet" />
+
+        <title>Assignment 2</title>
+    </head>
+
+    <body>
+        <header class="main-header">
+            <h1>Facebook Fake Signup</h1>
+        </header>
+
+        <main>
+            <form class="signup-form" action="https://www.facebook.com">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input id="first-name" type="text" placeholder="Facebook" name="first-name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+
+                    <input id="last-name" type="text" placeholder="Meta" name="last-name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birthdate: </label>
+                    <input id="birthdate" type="date" name="birthdate" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input id="phone" type="tel" placeholder="0543432345" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input id="country" type="text" placeholder="Israel" name="country" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <input id="city" type="text" placeholder="Jerusalem" name="city" required />
+                </div>
+
+                <div class="form-group gender">
+                    <input id="gender-male" type="radio" name="gender" value="male" required />
+                    <label for="gender-male">Male</label>
+
+                    <input id="gender-female" type="radio" name="gender" value="female" required />
+                    <label for="gender-female">Female</label>
+                </div>
+
+                <button type="submit">Signup</button>
+            </form>
+        </main>
+    </body>
+</html>
