@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* .direction-rtl {
+    direction: rtl;
+} */
+
+.direction-ltr {
+    direction: ltr;
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.main-header {
+    height: 96px;
+    padding: 28px 0;
+    background-color: black;
+}
+
+.main-header h1 {
+    margin: 0;
+
+    text-align: center;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 16px 32px;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    /* Cannot place , between strings */
+    grid-template-areas:
+        'header header header header'
+        'main main . sidebar'
+        'footer footer footer footer';
+
+    width: 600px;
+    height: 600px;
+    background-color: blue;
+}
+
+.child-1 {
+    /* Longer syntax */
+    /* grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3; */
+
+    /* Shorthand syntax */
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+
+    background-color: black;
+}
+
+.child-2 {
+    grid-area: sidebar;
+
+    background-color: orange;
+}
+
+.child-3 {
+    grid-area: footer;
+
+    background-color: red;
+}
+
+.container-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'cell-1 cell-2'
+        'cell-3 cell-4';
+
+    width: 600px;
+    height: 600px;
+
+    background-color: pink;
+}
+
+.cell-1,
+.cell-2,
+.cell-3,
+.cell-4 {
+    width: 100px;
+    height: 100px;
+    background-color: fuchsia;
+}
+
+.cell-1 {
+    grid-area: cell-1;
+}
+
+.cell-2 {
+    grid-area: cell-2;
+}
+
+.cell-3 {
+    grid-area: cell-3;
+}
+
+.cell-4 {
+    grid-area: cell-4;
+}
+
+.justify-items {
+    justify-items: start;
+    justify-items: end;
+    justify-items: center;
+}
+
+.align-items {
+    align-items: start;
+    align-items: end;
+    align-items: center;
+}

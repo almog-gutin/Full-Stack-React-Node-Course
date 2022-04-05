@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+
+    font-size: 16px;
+}
+
+.main-header {
+    height: 96px;
+    padding: 28px 0;
+    background-color: black;
+}
+
+.main-header h1 {
+    margin: 0;
+
+    text-align: center;
+    color: white;
+}
+
+main {
+    padding: 16px 32px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    background-color: chocolate;
+    min-height: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.red {
+    background-color: red;
+}
+
+.aqua {
+    background-color: aqua;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.flex {
+    display: flex;
+}
+
+.row {
+    /* direction: rtl; */
+    flex-direction: row;
+    flex-direction: row-reverse;
+}
+
+.column {
+    /* direction: rtl; */
+    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+.wrap {
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+}
+
+.justify {
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.align {
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.gap {
+    /* column-gap: 20px;
+    row-gap: 50px; */
+
+    gap: 100px 40px;
+}
