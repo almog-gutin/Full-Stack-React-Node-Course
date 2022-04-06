@@ -25,6 +25,8 @@ body {
 }
 
 main {
+    /* position: relative; */
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,6 +63,7 @@ main {
 }
 
 .container-2 {
+    /* position: relative; */
     width: 400px;
     height: 400px;
     padding: 10px;
@@ -76,7 +79,7 @@ main {
 
 .container-2 .child-1 {
     position: absolute;
-    top: 0px;
+    top: 200px;
     left: 100px;
 
     background-color: crimson;
@@ -90,6 +93,7 @@ main {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 100;
 
     display: flex;
     justify-content: center;
@@ -104,6 +108,7 @@ main {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    z-index: 100;
 
     width: 50px;
     height: 50px;
@@ -114,6 +119,7 @@ main {
 .sticky {
     position: sticky;
     top: 0;
+    /* opacity: 0.8; */
 
     width: 100%;
     height: 96px;

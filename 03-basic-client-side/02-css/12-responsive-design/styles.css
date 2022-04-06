@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 80px;
+    padding: 10px;
+
+    background-color: tan;
+}
+
+.main-header h1 {
+    margin: 0;
+
+    color: white;
+}
+
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+
+    background-color: transparent;
+    border: none;
+}
+
+.bar {
+    width: 100%;
+    height: 5px;
+
+    background-color: white;
+    border-radius: 5px;
+}
+
+.main-nav {
+    display: none;
+    width: 300px;
+    height: 100%;
+    /* background-color: black; */
+}
+
+.main-nav ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    /* This changes the style of the list */
+    list-style-type: none;
+}
+
+.main-nav ul li a {
+    /* This styles the test with a line */
+    text-decoration: none;
+
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    width: 100vw;
+    /* calc is a function to calculate a mathimatical expression */
+    min-height: calc(100vh - 80px);
+
+    padding: 16px 32px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 45%;
+    max-width: 300px;
+    min-width: 200px;
+    height: 200px;
+
+    background-color: tan;
+    border-radius: 10px;
+}
+
+.card h1 {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+    .hamburger-btn {
+        display: none;
+    }
+
+    .main-nav {
+        display: block;
+    }
+}
