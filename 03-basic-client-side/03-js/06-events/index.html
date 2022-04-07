@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link href="./styles.css" rel="stylesheet" />
+
+        <title>Events</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>DOM Events</h1>
+            <hr />
+        </header>
+
+        <main>
+            <button id="click-btn" type="button">Click Me</button>
+
+            <button id="hello-world-btn" type="button">Add Hello World</button>
+
+            <button id="change-color-btn" type="button">Change The Color</button>
+
+            <div id="container-hello-world">
+                <h3>Hello World Container</h3>
+            </div>
+
+            <div id="square" class="square black"></div>
+
+            <div>
+                <h2 id="input-title">Placeholder</h2>
+
+                <input id="text-input" type="text" />
+            </div>
+
+            <form id="login-form" class="login-form">
+                <h2>Login</h2>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input id="email" type="text" placeholder="example@example.com" />
+
+                    <div id="email-error-message" class="error-message">*Invalid email</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" />
+
+                    <div id="password-error-message" class="error-message">*Invalid password</div>
+                </div>
+
+                <button id="login-submit-btn" type="submit">Login</button>
+            </form>
+        </main>
+
+        <script src="./main.js"></script>
+    </body>
+</html>

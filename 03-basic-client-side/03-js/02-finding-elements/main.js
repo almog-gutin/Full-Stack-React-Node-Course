@@ -1,17 +1,21 @@
-// console.dir(document);
+/* THis prints out the DOM Element as HTML to the console */
+console.log(document);
+
+/* This prints out the DOM Element as a JavaScript object to the console */
+console.dir(document);
 // document is an object that allows me to gain access to the DOM
 
-// Find an element by its id
+/* Find An Element By It's id */
 const element1 = document.getElementById('find-by-id');
 
-console.log(element1);
+console.dir(element1);
 
-// Find an element by its selector (like css)
+/* Find An Element By It's Selector (like css) */
 const element2 = document.querySelector('.selector-example');
 
-console.log(element2);
+console.dir(element2);
 
-// Find elements by query selector and it will return an array of elements
+/* Find elements by query selector and it will return an array of elements */
 const elements = document.querySelectorAll('.selector-example');
 
-console.log(elements);
+console.dir(elements);

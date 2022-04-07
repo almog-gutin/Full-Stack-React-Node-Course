@@ -1,7 +1,9 @@
 const paragraphEl = document.getElementById('paragraph');
 
 /* How to change the text of an element */
+console.log(paragraphEl.innerText);
 paragraphEl.innerText = 'I think that HTML & CSS are BETTER!!!!!!!!';
+console.log(paragraphEl.innerText);
 
 const paragraph2El = document.getElementById('paragraph-2');
 
@@ -17,7 +19,7 @@ squareEl.innerHTML = '<h2 style="text-align: center">Inner HTML Example</h2>';
 /* How to change the values of attributes */
 const imgEl = document.getElementById('image');
 
-imgEl.src = '';
+imgEl.src = '../images/self-portrait.webp';
 imgEl.alt = 'NFT Monkey';
 
 console.dir(document);

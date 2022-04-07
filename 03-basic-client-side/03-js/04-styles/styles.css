@@ -1,0 +1,39 @@
+.square {
+    width: 300px;
+    height: 300px;
+}
+
+.red {
+    background-color: red;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+}
+
+.green {
+    background-color: green;
+}
+
+.card {
+    width: 300px;
+    height: 500px;
+
+    border-radius: 10px;
+
+    background-color: purple;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.double-text {
+    color: white;
+    font-size: 40px;
+}

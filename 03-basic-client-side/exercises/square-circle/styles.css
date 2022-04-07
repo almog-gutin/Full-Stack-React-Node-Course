@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+}
+
+.square {
+    background-color: blue;
+}
+
+.circle {
+    background-color: red;
+
+    border-radius: 50%;
+}
