@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: 80px;
+    padding: 10px;
+
+    background-color: tan;
+}
+
+.main-header h1 {
+    margin: 0;
+
+    color: white;
+}
+
+.hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+
+    background-color: transparent;
+    border: none;
+}
+
+.bar {
+    width: 100%;
+    height: 5px;
+
+    background-color: white;
+    border-radius: 5px;
+}
+
+.main-nav {
+    display: none;
+    width: 300px;
+    height: 100%;
+}
+
+.main-nav ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100vw;
+    min-height: calc(100vh - 80px);
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 1200px;
+    min-height: 400px;
+    padding: 32px 16px;
+}
+
+.about-section img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.about {
+    width: 100%;
+    max-width: 450px;
+    color: tan;
+
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 48px;
+}
+
+/* Work Experience Section */
+.work-experience-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 400px;
+    padding: 32px 16px;
+
+    background-color: tan;
+    color: white;
+}
+
+.work-experience-section h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.work-experience-section p {
+    width: 100%;
+    max-width: 800px;
+
+    text-align: center;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 800px;
+    min-height: 400px;
+    padding: 32px 16px;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+
+    color: tan;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.contact-form button {
+    width: 200px;
+    height: 50px;
+
+    color: white;
+    background-color: tan;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: rgb(185, 158, 123);
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 18px;
+    color: tan;
+}
+
+.form-group input {
+    display: block;
+
+    width: 100%;
+    height: 50px;
+    padding: 16px;
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 30px;
+    background-color: tan;
+    color: white;
+    font-size: 16px;
+}
+
+/* Tablet & Desktop Styles */
+@media (min-width: 700px) {
+    .hamburger-btn {
+        display: none;
+    }
+
+    .main-nav {
+        display: block;
+    }
+
+    .about-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about {
+        text-align: start;
+    }
+}
