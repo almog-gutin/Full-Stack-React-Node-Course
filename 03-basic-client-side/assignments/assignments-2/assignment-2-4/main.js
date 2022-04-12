@@ -18,6 +18,11 @@ addImageBtn.addEventListener('click', () => {
     const imageDesc = imageDescInput1El.value;
 
     createImageAndAppend(imageURL, imageDesc);
+    // const img = document.createElement('img');
+    // img.src = imageURL;
+    // img.alt = imageDesc;
+
+    // imagesContainerEl.appendChild(img);
 
     imageURLInput1El.value = '';
     imageDescInput1El.value = '';
@@ -35,6 +40,11 @@ imageFormEl.addEventListener('submit', (event) => {
     const imageDesc = imageDescInput2El.value;
 
     createImageAndAppend(imageURL, imageDesc);
+    // const img = document.createElement('img');
+    // img.src = imageURL;
+    // img.alt = imageDesc;
+
+    // imagesContainerEl.appendChild(img);
 
     imageURLInput2El.value = '';
     imageDescInput2El.value = '';

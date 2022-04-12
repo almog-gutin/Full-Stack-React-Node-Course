@@ -7,28 +7,27 @@ const changeCircleClass = (oldClass, newClass) => {
 };
 
 circleEl.addEventListener('click', () => {
-    if (clicksCount === 0) {
-        changeCircleClass('circle-s', 'circle-m');
-        clicksCount++;
-
-        return;
-    }
+    clicksCount++;
 
     if (clicksCount === 1) {
-        changeCircleClass('circle-m', 'circle-l');
-        clicksCount++;
+        changeCircleClass('circle-s', 'circle-m');
 
         return;
     }
 
     if (clicksCount === 2) {
-        changeCircleClass('circle-l', 'circle-xl');
-        clicksCount++;
+        changeCircleClass('circle-m', 'circle-l');
 
         return;
     }
 
     if (clicksCount === 3) {
+        changeCircleClass('circle-l', 'circle-xl');
+
+        return;
+    }
+
+    if (clicksCount === 4) {
         changeCircleClass('circle-xl', 'circle-s');
         clicksCount = 0;
 

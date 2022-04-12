@@ -6,9 +6,21 @@ for (let row = 0; row < 8; row++) {
         square.classList.add('square');
 
         if (row % 2 === 0) {
-            square.classList.add(column % 2 === 0 ? 'black' : 'gray');
+            // if (column % 2 === 0) {
+            //     square.classList.add('black');
+            // } else {
+            //     square.classList.add('gray');
+            // }
+
+            square.classList.add(column % 2 !== 0 ? 'black' : 'gray');
         } else {
-            square.classList.add(column % 2 === 0 ? 'gray' : 'black');
+            // if (column % 2 === 0) {
+            //     square.classList.add('gray');
+            // } else {
+            //     square.classList.add('black');
+            // }
+
+            square.classList.add(column % 2 !== 0 ? 'gray' : 'black');
         }
 
         boardEl.appendChild(square);
