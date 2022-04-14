@@ -1,0 +1,9 @@
+.board {
+    width: 600px;
+    height: 600px;
+}
+
+.square {
+    width: calc(100% / 8);
+    height: calc(100% / 8);
+}

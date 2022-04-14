@@ -1,43 +1,61 @@
-/* How To Create Async Functions */
+/* How To Make A Function/Methods Asynchronous */
+// Function Decloration
 async function decloration() {}
 
+// Function Expression
 const expression = async function () {};
 
+// Arrow Function
 const arrow = async () => {};
 
-const productsEl = document.getElementById('products-container');
+const obj = {
+    expression: async function () {},
 
-const getData = async () => {
+    async expressionShortHand() {},
+};
+
+/* Fetch API */
+const productsContainer = document.getElementById('products-container');
+const imagesContainer = document.getElementById('images-container');
+
+const getProductsAndCreate = async () => {
     try {
-        // Here we preform the async commands/expressions
-        const res = await fetch('https://fakestoreapi.com/products');
+        // Here we preform the asynchronous commands
+        const res = await fetch('https://fakestoreapi.com/products?limit=5');
 
-        // Converets the response to an object from the json notation
+        // json method is an asynchronous function that locates the data inside the response and converts from json format to an object
         const data = await res.json();
-
+        // console.log(data);
         console.log(data);
+        return data;
 
-        for (let i = 0; i < data.length; i++) {
-            const product = data[i];
+        // for (let i = 0; i < data.length; i++) {
+        //     const element = data[i];
 
-            const div = document.createElement('div');
-            const h3 = document.createElement('h3');
-            const img = document.createElement('img');
-            const p = document.createElement('p');
+        //     const product = document.createElement('div');
+        //     const h3 = document.createElement('h3');
+        //     const img = document.createElement('img');
+        //     const p = document.createElement('p');
 
-            h3.innerText = product.title;
-            img.src = product.image;
-            p.innerText = product.price;
+        //     h3.innerText = element.title;
+        //     img.src = element.image;
+        //     img.alt = element.title;
+        //     p.innerText = element.price;
 
-            div.appendChild(h3);
-            div.appendChild(img);
-            div.appendChild(p);
+        //     // imagesContainer.appendChild(img);
 
-            productsEl.appendChild(div);
-        }
-    } catch (err) {
-        // Here we catch the errors that happend in the try
+        //     product.appendChild(h3);
+        //     product.appendChild(img);
+        //     product.appendChild(p);
+
+        //     productsContainer.appendChild(product);
+        // }
+    } catch (error) {
+        // Here we preform commads if there was an error
+        alert('Something Went Wrong!');
     }
 };
 
-getData();
+const products = getProductsAndCreate();
+
+console.log(products);

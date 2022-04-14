@@ -1,0 +1,39 @@
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.child-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 25%;
+}
+
+.container-2 {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.child-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25%;
+}
