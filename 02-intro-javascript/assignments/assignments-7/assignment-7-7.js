@@ -1,5 +1,11 @@
 /* 
+    Create a program that checks if an array of numbers has a negative number.
 
+    If the array has a negative number then the loop should stop and print out to the console that that the array
+    containts a negative number.
+
+    However, if the condition was not met than the program will print out to the console that all the numbers inside the array
+    are positive.
 */
 
 const isThereANegativeNumInArr = (numbers) => {

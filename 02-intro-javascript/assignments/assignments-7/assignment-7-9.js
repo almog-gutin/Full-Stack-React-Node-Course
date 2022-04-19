@@ -1,5 +1,14 @@
 /* 
+    Create a class called Person. Person will contain the following properties:
+    1. firstName
+    2. lastName
+    3. age
+    4. doesHaveBrothers
 
+    Create a function inside the program which will compare the values of the object.
+    
+    The function will return true if the objects are equal to each other, if not then the function
+    will return false.
 */
 
 class Person {

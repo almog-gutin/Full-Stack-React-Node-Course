@@ -1,5 +1,10 @@
 /* 
+    Create a function which mimics the contains method for arrays.
 
+    The function has 2 parameters, an array and an element.
+    
+    The function will return true or false if the element exists inside
+    the array.
 */
 
 const contains = (arr, element) => {

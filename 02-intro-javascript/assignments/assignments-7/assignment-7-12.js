@@ -1,5 +1,16 @@
 /* 
+    Create  function which has 2 parmeters:
+    1. A numbers array which is mandatory
+    2. Index which is optional
 
+    The function needs to check if the index parameter exists. If it doesn't
+    then the function needs to return the first element inside the array.
+
+    If the index is a negative number then the function needs to return an empty
+    array.
+
+    If the index exists and it is not a negative number then the function will return
+    an array from 0 to the index.
 */
 
 const func = (numbers, index) => {

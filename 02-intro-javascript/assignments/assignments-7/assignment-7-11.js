@@ -1,5 +1,17 @@
 /* 
+    Create function which has 1 parameter that represents a number.
 
+    The function needs to print out a pyramid the with the height of the number sent to the parameter.
+    Each row of the pyramid will contain the amount of stars of the row.
+
+    Input: 5
+    
+    Output:
+    *
+    * *
+    * * *
+    * * * *
+    * * * * *
 */
 
 // Option 1

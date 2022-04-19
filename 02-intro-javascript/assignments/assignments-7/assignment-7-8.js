@@ -1,5 +1,10 @@
 /* 
+    Create a function that has 1 parameter which represents an array of strings.
 
+    The function will go over the entire array and return the longest string.
+
+    Input: ['Almog', 'Tal', 'Ariye']
+    Output: 'Almog'
 */
 
 const getLongestString = (stringArr) => {

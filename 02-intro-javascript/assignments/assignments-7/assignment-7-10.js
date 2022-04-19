@@ -1,5 +1,7 @@
 /* 
-
+    Create a function which has 1 parameter that represents a number
+    
+    The function will check if the number is a prime number.
 */
 
 const isRishoni = (num) => {
