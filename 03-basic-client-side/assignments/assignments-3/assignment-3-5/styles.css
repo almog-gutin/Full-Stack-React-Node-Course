@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+
+    width: 100vw;
+    height: 80px;
+    padding: 16px;
+
+    color: white;
+    background-color: blueviolet;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+
+    width: 100vw;
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+    width: 300px;
+
+    background-color: #4169e2;
+}
+
+.sidebar .sidebar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 16px;
+    margin: 0;
+
+    list-style: none;
+}
+
+.sidebar-item a {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    padding: 16px;
+}
+
+.card {
+    padding: 16px;
+
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.main-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 80px;
+
+    color: red;
+    background-color: #eeeeee;
+}
+
+@media (min-width: 1000px) {
+    .main-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

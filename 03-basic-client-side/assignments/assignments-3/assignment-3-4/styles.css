@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #00000093;
+}
+
+.modal {
+    width: 90%;
+    min-width: 320px;
+    max-width: 400px;
+    height: 40%;
+    min-height: 320px;
+    max-height: 400px;
+    padding: 16px;
+
+    background-color: white;
+    border-radius: 5px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eeee;
+}
+
+.modal-body {
+    width: 100%;
+    height: calc(100% - 83px - 69px);
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: row-reverse;
+
+    padding: 16px 0;
+
+    border-top: 1px solid #eeee;
+}
+
+.modal-footer button {
+    display: block;
+
+    width: 100px;
+    height: 50px;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #888888;
+    border-radius: 5px;
+    border: none;
+
+    cursor: pointer;
+}
+
+.modal-footer button:hover {
+    background-color: #717070;
+}
+
+.modal-show {
+    display: flex;
+}
