@@ -17,6 +17,6 @@ main {
     height: 600px;
 }
 
-.board .row {
+.col-4 {
     height: calc(100% / 3);
 }

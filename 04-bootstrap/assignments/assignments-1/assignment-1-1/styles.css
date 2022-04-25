@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.main-header {
+    height: 80px;
+}
+
+.hamburger-btn {
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+}
+
+.bar {
+    height: 5px;
+}
+
+.main-nav {
+    width: 300px;
+}
+
+main {
+    min-height: calc(100vh - 80px);
+}
+
+/* About Section */
+
+.about {
+    max-width: 450px;
+}
+
+.about h2 {
+    font-size: 48px;
+}
+
+img {
+    max-width: 300px;
+}
+
+/* Work Experience Section */
+.work-experience-section {
+    min-height: 400px;
+}
+
+.work-experience-section h2 {
+    font-size: 36px;
+}
+
+.work-experience-section p {
+    max-width: 800px;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 400px;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+}
+
+.contact-form {
+    gap: 20px;
+}
+
+.contact-form button {
+    width: 200px;
+    height: 50px;
+
+    cursor: pointer;
+}
+
+/* Tablet & Desktop Styles */
+@media (min-width: 700px) {
+    .about-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

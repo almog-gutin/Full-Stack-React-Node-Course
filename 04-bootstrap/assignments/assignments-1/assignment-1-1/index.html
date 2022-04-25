@@ -13,11 +13,124 @@
         />
         <link href="./styles.css" rel="stylesheet" />
 
-        <title>Bootstrap Intro</title>
+        <title>Assignment 1-1</title>
     </head>
 
     <body>
-        <h1>Bootstrap Intro</h1>
+        <header class="main-header vw-100 bg-primary">
+            <div class="container-sm h-100 d-flex justify-content-between align-items-center">
+                <h1 class="text-white mb-0">Biography</h1>
+
+                <button
+                    type="button"
+                    class="hamburger-btn p-1 bg-transparent border border-0 d-flex flex-column justify-content-between d-md-none"
+                >
+                    <div class="bar bg-white border w-100 rounded-pill"></div>
+                    <div class="bar bg-white border w-100 rounded-pill"></div>
+                    <div class="bar bg-white border w-100 rounded-pill"></div>
+                </button>
+
+                <nav class="main-nav d-none d-md-block">
+                    <ul class="list-unstyled mb-0 d-flex justify-content-evenly align-content-center">
+                        <li>
+                            <a href="#" class="text-white text-decoration-none">About</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text-white text-decoration-none">Work</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text-white text-decoration-none">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="row m-0 flex-column align-items-center vw-100">
+            <div class="container p-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="about col-12 col-md-6 text-center text-md-start">
+                        <h2>Almog Gutin</h2>
+                        <p>
+                            Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                            Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                            Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                            Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                            Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                        </p>
+                    </div>
+
+                    <img src="./images/self-portrait.webp" alt="Portrait" class="col-12 col-md-6 rounded-circle" />
+                </div>
+            </div>
+
+            <div class="container bg-primary text-center text-white p-5">
+                <div class="row">
+                    <h2 class="col-12">Work Experience</h2>
+
+                    <p class="col-12">
+                        Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah
+                        blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                        Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah
+                        blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                        Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah blah Blah blah Blah blah
+                        Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah
+                        blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                        Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah
+                        blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah Blah blah
+                        Blah blah Blah blah Blah blah Blah blah
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-section container bg-white p-5">
+                <div class="row">
+                    <h2 class="text-center col-12">Contact Form</h2>
+
+                    <form id="contact-form" class="contact-form col-12 d-flex flex-column align-items-center">
+                        <div class="w-100">
+                            <label for="name" class="form-label">Full Name:</label>
+
+                            <input
+                                id="name"
+                                class="form-control border border-2 rounded-pill"
+                                type="text"
+                                placeholder="Your name"
+                                required
+                            />
+                        </div>
+
+                        <div class="w-100">
+                            <label for="email" class="form-label">Email:</label>
+
+                            <input
+                                id="email"
+                                class="form-control border border-2 rounded-pill"
+                                type="text"
+                                placeholder="example@example.com"
+                                required
+                            />
+                        </div>
+
+                        <div class="w-100">
+                            <label for="phone-number" class="form-label">Phone Number:</label>
+
+                            <input
+                                id="phone-number"
+                                class="form-control border border-2 rounded-pill"
+                                type="text"
+                                placeholder="0543432123"
+                                required
+                            />
+                        </div>
+
+                        <button type="submit" class="bg-primary border rounded-pill text-white">Contact</button>
+                    </form>
+                </div>
+            </div>
+        </main>
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
