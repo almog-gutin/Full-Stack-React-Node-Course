@@ -6,7 +6,11 @@ import './header.styles.css';
 // Add a background color, add a text color.
 
 const Header = () => {
-    return null;
+    return (
+        <header className="main-header">
+            <h1>Todo List</h1>
+        </header>
+    );
 };
 
 export default Header;
