@@ -5,6 +5,7 @@ import Footer from './components/shared/footer/Footer.component';
 import HomePage from './pages/home-page/HomePage.component';
 // import LoginPage from './pages/login-page/LoginPage.component';
 import SignupPage from './pages/signup-page/SignupPage.component';
+import PageNotFound from './pages/page-not-found/PageNotFound.component';
 
 const App = () => {
     return (
@@ -13,7 +14,8 @@ const App = () => {
 
             {/* <HomePage /> */}
             {/* <LoginPage /> */}
-            <SignupPage />
+            {/* <SignupPage /> */}
+            <PageNotFound />
 
             <Footer />
         </div>
