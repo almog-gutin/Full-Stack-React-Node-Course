@@ -46,3 +46,16 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
+.children-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+
+    background-color: red;
+    color: white;
+}

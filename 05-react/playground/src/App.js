@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
-import Child from './Child.component';
 
-import ComponentExample from './ComponentExample.component';
-import CustomButton from './CustomButton.component';
+import ComponentExample from './components/component-example/ComponentExample.component';
+import CustomButton from './components/custom-button/CustomButton.component';
+import Child from './components/child/Child.component';
+import ComponentChildren from './components/component-children/ComponentChildren.component';
+import UseStateExample from './hooks/01-usestate/UseStateExample.component';
+import UsestateExercise from './exercises/usestate-exercise/UsestateExercise.component';
 
 const App = () => {
     const handleClick = () => {
@@ -17,7 +20,7 @@ const App = () => {
     ];
 
     return (
-        <div>
+        <div className="App">
             <ComponentExample />
 
             {/* Props = Properties (Attributes) */}
@@ -28,6 +31,20 @@ const App = () => {
                     return <Child firstName={brother.firstName} lastName={brother.lastName} age={brother.age} />;
                 })}
             </div>
+
+            <ComponentChildren className="children-component">
+                This is an example of closing component tags
+            </ComponentChildren>
+
+            <ComponentChildren className="children-component">
+                <h5>Child 1</h5>
+
+                <h5>Child 2</h5>
+            </ComponentChildren>
+
+            <UseStateExample />
+
+            <UsestateExercise />
         </div>
     );
 };

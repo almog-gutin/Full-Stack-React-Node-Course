@@ -1,4 +1,5 @@
 import React from 'react';
+import './child.styles.css';
 
 const Child = (props) => {
     console.log(props);
