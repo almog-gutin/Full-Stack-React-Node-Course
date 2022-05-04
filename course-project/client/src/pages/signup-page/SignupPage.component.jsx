@@ -12,10 +12,13 @@
 import React from 'react';
 import './signup-page.styles.css';
 
+import Card from '../../components/card/Card.component';
+import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
+
 const SignupPage = () => {
     return (
         <main className="signup-page">
-            <div className="card">
+            <Card className="signup-page-card">
                 <h1>Hello New User!</h1>
 
                 <form className="signup-form">
@@ -63,9 +66,26 @@ const SignupPage = () => {
 
                     <button type="submit">Signup</button>
                 </form>
-            </div>
+            </Card>
         </main>
     );
 };
 
 export default SignupPage;
+
+/* 
+    <FormInputContainer id="first-name" labelText="First Name:" required={true} />
+
+    <FormInputContainer id="last-name" labelText="Last Name:" required={true} />
+
+    <FormInputContainer id="email" labelText="Email:" required={true} type="email" />
+
+    <FormInputContainer id="password" labelText="Password:" required={true} type="password" />
+
+    <FormInputContainer
+        id="repeated-password"
+        labelText="Repeated Password:"
+        required={true}
+        type="password"
+    />
+*/

@@ -10,13 +10,42 @@
     and a submit button: Login
 */
 
-import React from 'react';
+import React, { useState } from 'react';
+import isEmail from 'validator/lib/isEmail';
 import './login-page.styles.css';
 
+import Card from '../../components/card/Card.component';
+import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
+
 const LoginPage = () => {
+    // Component States
+    const [isEmailValid, setIsEmailValid] = useState(true);
+    const [emailErrorMessage, setEmailErrorMessage] = useState('');
+
+    // Validate The Email Input - Function that validates the users input for the email input tag
+    const handleEmailInput = (event) => {
+        const emailInput = event.target.value.toLowerCase().trim();
+
+        if (emailInput === '') {
+            setEmailErrorMessage('Please enter an email address');
+            setIsEmailValid(false);
+
+            return;
+        }
+
+        if (!isEmail(emailInput)) {
+            setEmailErrorMessage('Please enter a valid email address');
+            setIsEmailValid(false);
+
+            return;
+        }
+
+        setIsEmailValid(true);
+    };
+
     return (
         <main className="login-page">
-            <div className="card">
+            <Card className="login-page-card">
                 <h1>Welcome Back!</h1>
 
                 <form className="login-form">
@@ -26,7 +55,10 @@ const LoginPage = () => {
                                 Email:
                             </label>
 
-                            <input className="form-input" id="email" type="email" required />
+                            <input onInput={handleEmailInput} className="form-input" id="email" type="text" required />
+
+                            {!isEmailValid && <div className="error-message">{emailErrorMessage}</div>}
+                            {/* {isEmailValid ? null : <div className="error-message">{emailErrorMessage}</div>} */}
                         </div>
 
                         <div className="form-input-container">
@@ -42,9 +74,15 @@ const LoginPage = () => {
 
                     <button type="submit">Login</button>
                 </form>
-            </div>
+            </Card>
         </main>
     );
 };
 
 export default LoginPage;
+
+/* 
+    <FormInputContainer id="email" labelText="Email:" required={true} type="email" />
+
+    <FormInputContainer id="password" labelText="Password:" required={true} type="password" />
+*/

@@ -1,0 +1,18 @@
+.usestate-exercise-container {
+    margin-top: 20px;
+}
+
+.usestate-square {
+    width: 200px;
+    height: 200px;
+
+    margin-top: 10px;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
