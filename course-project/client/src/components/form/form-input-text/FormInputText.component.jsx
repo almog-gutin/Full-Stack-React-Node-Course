@@ -8,6 +8,7 @@ const FormInputText = (props) => {
             id={props.id}
             type={props.type ? props.type : 'text'}
             required={props.required}
+            onInput={props.handleInput}
         />
     );
 };

@@ -9,7 +9,9 @@ const FormInputContainer = (props) => {
         <div className="form-input-container">
             <FormLabel htmlFor={props.id} text={props.labelText} />
 
-            <FormInputText id={props.id} required={props.required} type={props.type} />
+            <FormInputText id={props.id} required={props.required} type={props.type} handleInput={props.handleInput} />
+
+            {!props.isValid && <div className="error-message">{props.errorMessage}</div>}
         </div>
     );
 };

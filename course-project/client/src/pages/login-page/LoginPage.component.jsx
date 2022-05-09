@@ -136,7 +136,50 @@ const LoginPage = () => {
 export default LoginPage;
 
 /* 
-    <FormInputContainer id="email" labelText="Email:" required={true} type="email" />
+    <FormInputContainer
+        id="email"
+        labelText="Email:"
+        required={true}
+        type="email"
+        isValid={isEmailValid}
+        errorMessage={emailErrorMessage}
+        handleInput={handleEmailInput}
+    />
 
-    <FormInputContainer id="password" labelText="Password:" required={true} type="password" />
+    <FormInputContainer
+        id="password"
+        labelText="Password:"
+        required={false}
+        type="password"
+        isValid={isPasswordValid}
+        errorMessage={passwordErrorMessage}
+        handleInput={handlePasswordInput}
+    />
+*/
+
+/* 
+    <div className="form-input-container">
+        <label className="form-label" htmlFor="email">
+            Email:
+        </label>
+
+        <input onInput={handleEmailInput} className="form-input" id="email" type="text" required />
+
+        {!isEmailValid && <div className="error-message">{emailErrorMessage}</div>}
+        // {isEmailValid ? null : <div className="error-message">{emailErrorMessage}</div>} 
+    </div>
+
+    <div className="form-input-container">
+        <label htmlFor="password">Password:</label>
+
+         <input
+            onInput={handlePasswordInput}
+            className="form-input"
+            id="password"
+            type="password"
+            required
+        />
+
+        {!isPasswordValid && <div className="error-message">{passwordErrorMessage}</div>}
+    </div>
 */

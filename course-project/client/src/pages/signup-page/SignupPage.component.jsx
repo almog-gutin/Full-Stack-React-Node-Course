@@ -233,18 +233,106 @@ const SignupPage = () => {
 export default SignupPage;
 
 /* 
-    <FormInputContainer id="first-name" labelText="First Name:" required={true} />
+    <FormInputContainer
+        id="first-name"
+        labelText="First Name:"
+        required={false}
+        isValid={isFirstNameValid}
+        errorMessage={firstNameErrorMessage}
+        handleInput={handleFirstNameInput}
+    />
 
-    <FormInputContainer id="last-name" labelText="Last Name:" required={true} />
+    <FormInputContainer
+        id="last-name"
+        labelText="Last Name:"
+        required={false}
+        isValid={isLastNameValid}
+        errorMessage={lastNameErrorMessage}
+        handleInput={handleLastNameInput}
+    />
 
-    <FormInputContainer id="email" labelText="Email:" required={true} type="email" />
+    <FormInputContainer
+        id="email"
+        labelText="Email:"
+        required={true}
+        type="email"
+        isValid={isEmailValid}
+        errorMessage={emailErrorMessage}
+        handleInput={handleEmailInput}
+    />
 
-    <FormInputContainer id="password" labelText="Password:" required={true} type="password" />
+    <FormInputContainer
+        id="password"
+        labelText="Password:"
+        required={false}
+        type="password"
+        isValid={isPasswordValid}
+        errorMessage={passwordErrorMessage}
+        handleInput={handlePasswordInput}
+    />
 
     <FormInputContainer
         id="repeated-password"
         labelText="Repeated Password:"
-        required={true}
+        required={false}
         type="password"
+        isValid={isRepeatedPasswordValid}
+        errorMessage={repeatedPasswordErrorMessage}
+        handleInput={handleRepeatedPasswordInput}
     />
+*/
+
+/* 
+    <div className="form-input-container">
+        <label className="form-label" htmlFor="first-name">
+            First Name:
+        </label>
+
+        <input onInput={handleFirstNameInput} className="form-input" id="first-name" type="text" />
+
+        {!isFirstNameValid && <div className="error-message">{firstNameErrorMessage}</div>}
+    </div>
+
+    <div className="form-input-container">
+        <label className="form-label" htmlFor="last-name">
+            Last Name:
+        </label>
+
+        <input onInput={handleLastNameInput} className="form-input" id="last-name" type="text" />
+
+        {!isLastNameValid && <div className="error-message">{lastNameErrorMessage}</div>}
+    </div>
+
+    <div className="form-input-container">
+        <label className="form-label" htmlFor="email">
+            Email:
+        </label>
+
+        <input onInput={handleEmailInput} className="form-input" id="email" type="email" />
+
+        {!isEmailValid && <div className="error-message">{emailErrorMessage}</div>}
+    </div>
+
+    <div className="form-input-container">
+        <label htmlFor="password">Password:</label>
+
+        <input onInput={handlePasswordInput} className="form-input" id="password" type="password" />
+
+        {!isPasswordValid && <div className="error-message">{passwordErrorMessage}</div>}
+    </div>
+
+    <div className="form-input-container">
+        <label htmlFor="repeat-password">Repeat Password:</label>
+
+        <input
+            onInput={handleRepeatedPasswordInput}
+            className="form-input"
+            id="reapeat-password"
+            type="password"
+        />
+
+        {!isRepeatedPasswordValid && (
+            <div className="error-message">{repeatedPasswordErrorMessage}</div>
+        )}
+    </div>
 */
