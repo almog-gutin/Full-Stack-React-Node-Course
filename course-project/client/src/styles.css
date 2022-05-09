@@ -23,3 +23,8 @@ ul {
 
     list-style: none;
 }
+
+.error-message {
+    font-size: 14px;
+    color: #ff0000;
+}

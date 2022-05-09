@@ -13,8 +13,8 @@ const App = () => {
             <Header />
 
             {/* <HomePage /> */}
-            <LoginPage />
-            {/* <SignupPage /> */}
+            {/* <LoginPage /> */}
+            <SignupPage />
             {/* <PageNotFound /> */}
 
             <Footer />

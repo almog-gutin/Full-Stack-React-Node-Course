@@ -17,14 +17,21 @@ import './login-page.styles.css';
 import Card from '../../components/card/Card.component';
 import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
 
+import { doesStringContainANumber } from '../../utils/string.utils';
+
 const LoginPage = () => {
     // Component States
+    const [email, setEmail] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(true);
     const [emailErrorMessage, setEmailErrorMessage] = useState('');
+    const [password, setPassword] = useState('');
+    const [isPasswordValid, setIsPasswordValid] = useState(false);
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
     // Validate The Email Input - Function that validates the users input for the email input tag
     const handleEmailInput = (event) => {
         const emailInput = event.target.value.toLowerCase().trim();
+        setEmail(emailInput);
 
         if (emailInput === '') {
             setEmailErrorMessage('Please enter an email address');
@@ -40,7 +47,46 @@ const LoginPage = () => {
             return;
         }
 
+        setEmailErrorMessage('');
         setIsEmailValid(true);
+    };
+
+    const handlePasswordInput = (event) => {
+        const passwordInput = event.target.value.trim();
+        setPassword(passwordInput);
+
+        if (passwordInput === '') {
+            setPasswordErrorMessage('Please enter a password');
+            setIsPasswordValid(false);
+
+            return;
+        }
+
+        if (
+            !(passwordInput.length > 6 && passwordInput.length < 20) ||
+            !doesStringContainANumber(passwordInput) ||
+            passwordInput === 'password1'
+        ) {
+            setPasswordErrorMessage(
+                'You must enter a password with the length of 8-20 characters and mist contain at least 1 number'
+            );
+            setIsPasswordValid(false);
+
+            return;
+        }
+
+        setPasswordErrorMessage('');
+        setIsPasswordValid(true);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (!isEmailValid || email === '' || !isPasswordValid || password === '') {
+            return;
+        }
+
+        console.log('LOGIN');
     };
 
     return (
@@ -48,7 +94,7 @@ const LoginPage = () => {
             <Card className="login-page-card">
                 <h1>Welcome Back!</h1>
 
-                <form className="login-form">
+                <form className="login-form" onSubmit={handleSubmit}>
                     <div className="form-group">
                         <div className="form-input-container">
                             <label className="form-label" htmlFor="email">
@@ -64,7 +110,15 @@ const LoginPage = () => {
                         <div className="form-input-container">
                             <label htmlFor="password">Password:</label>
 
-                            <input className="form-input" id="password" type="password" required />
+                            <input
+                                onInput={handlePasswordInput}
+                                className="form-input"
+                                id="password"
+                                type="password"
+                                required
+                            />
+
+                            {!isPasswordValid && <div className="error-message">{passwordErrorMessage}</div>}
                         </div>
                     </div>
 
