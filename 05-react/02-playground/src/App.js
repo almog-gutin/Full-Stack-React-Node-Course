@@ -7,6 +7,7 @@ import Child from './components/child/Child.component';
 import ComponentChildren from './components/component-children/ComponentChildren.component';
 import UseStateExample from './hooks/01-usestate/UseStateExample.component';
 import UsestateExercise from './exercises/usestate-exercise/UsestateExercise.component';
+import UseReducerExample from './hooks/02-usereducer/UseReducerExample.component';
 
 const App = () => {
     const handleClick = () => {
@@ -45,6 +46,8 @@ const App = () => {
             <UseStateExample />
 
             <UsestateExercise />
+
+            <UseReducerExample />
         </div>
     );
 };

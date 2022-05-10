@@ -10,9 +10,12 @@
     and a submit button: Login
 */
 
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import './login-page.styles.css';
+
+import loginReducer, { LOGIN_FORM_INITITAL_STATE } from '../../reducers/login-form.reducer';
+import { updateEmailAction, updatedPasswordAction } from '../../actions/login-form.actions';
 
 import Card from '../../components/card/Card.component';
 import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
@@ -20,44 +23,33 @@ import FormInputContainer from '../../components/form/form-input-container/FormI
 import { doesStringContainANumber } from '../../utils/string.utils';
 
 const LoginPage = () => {
-    // Component States
-    const [email, setEmail] = useState('');
-    const [isEmailValid, setIsEmailValid] = useState(true);
-    const [emailErrorMessage, setEmailErrorMessage] = useState('');
-    const [password, setPassword] = useState('');
-    const [isPasswordValid, setIsPasswordValid] = useState(false);
-    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+    // Reducer State
+    const [loginFormState, dispatchLoginFormState] = useReducer(loginReducer, LOGIN_FORM_INITITAL_STATE);
 
     // Validate The Email Input - Function that validates the users input for the email input tag
     const handleEmailInput = (event) => {
         const emailInput = event.target.value.toLowerCase().trim();
-        setEmail(emailInput);
 
         if (emailInput === '') {
-            setEmailErrorMessage('Please enter an email address');
-            setIsEmailValid(false);
+            dispatchLoginFormState(updateEmailAction(emailInput, false, 'Please enter an email address'));
 
             return;
         }
 
         if (!isEmail(emailInput)) {
-            setEmailErrorMessage('Please enter a valid email address');
-            setIsEmailValid(false);
+            dispatchLoginFormState(updateEmailAction(emailInput, false, 'Please enter a valid email address'));
 
             return;
         }
 
-        setEmailErrorMessage('');
-        setIsEmailValid(true);
+        dispatchLoginFormState(updateEmailAction(emailInput, true, ''));
     };
 
     const handlePasswordInput = (event) => {
         const passwordInput = event.target.value.trim();
-        setPassword(passwordInput);
 
         if (passwordInput === '') {
-            setPasswordErrorMessage('Please enter a password');
-            setIsPasswordValid(false);
+            dispatchLoginFormState(updatedPasswordAction(passwordInput, false, 'Please enter a password'));
 
             return;
         }
@@ -67,22 +59,27 @@ const LoginPage = () => {
             !doesStringContainANumber(passwordInput) ||
             passwordInput === 'password1'
         ) {
-            setPasswordErrorMessage(
-                'You must enter a password with the length of 8-20 characters and mist contain at least 1 number'
+            dispatchLoginFormState(
+                updatedPasswordAction(
+                    passwordInput,
+                    false,
+                    'You must enter a password with the length of 8-20 characters and mist contain at least 1 number'
+                )
             );
-            setIsPasswordValid(false);
 
             return;
         }
 
-        setPasswordErrorMessage('');
-        setIsPasswordValid(true);
+        dispatchLoginFormState(updatedPasswordAction(passwordInput, true, ''));
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (!isEmailValid || email === '' || !isPasswordValid || password === '') {
+        const values = loginFormState.values;
+        const validities = loginFormState.validities;
+
+        if (values.email === '' || values.password === '' || !validities.email || !validities.password) {
             return;
         }
 
@@ -96,30 +93,25 @@ const LoginPage = () => {
 
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <div className="form-input-container">
-                            <label className="form-label" htmlFor="email">
-                                Email:
-                            </label>
+                        <FormInputContainer
+                            id="email"
+                            labelText="Email:"
+                            required={false}
+                            type="email"
+                            isValid={loginFormState.validities.email}
+                            errorMessage={loginFormState.errorMessages.email}
+                            handleInput={handleEmailInput}
+                        />
 
-                            <input onInput={handleEmailInput} className="form-input" id="email" type="text" required />
-
-                            {!isEmailValid && <div className="error-message">{emailErrorMessage}</div>}
-                            {/* {isEmailValid ? null : <div className="error-message">{emailErrorMessage}</div>} */}
-                        </div>
-
-                        <div className="form-input-container">
-                            <label htmlFor="password">Password:</label>
-
-                            <input
-                                onInput={handlePasswordInput}
-                                className="form-input"
-                                id="password"
-                                type="password"
-                                required
-                            />
-
-                            {!isPasswordValid && <div className="error-message">{passwordErrorMessage}</div>}
-                        </div>
+                        <FormInputContainer
+                            id="password"
+                            labelText="Password:"
+                            required={false}
+                            type="password"
+                            isValid={loginFormState.validities.password}
+                            errorMessage={loginFormState.errorMessages.password}
+                            handleInput={handlePasswordInput}
+                        />
                     </div>
 
                     <a href="#" className="signup-link">
