@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './components/shared/header/Header.component';
 import Footer from './components/shared/footer/Footer.component';
@@ -9,16 +10,20 @@ import PageNotFound from './pages/page-not-found/PageNotFound.component';
 
 const App = () => {
     return (
-        <div>
+        <BrowserRouter>
             <Header />
 
-            <HomePage />
-            {/* <LoginPage /> */}
-            {/* <SignupPage /> */}
-            {/* <PageNotFound /> */}
+            <Routes>
+                <Route path="" element={<HomePage />} />
+
+                <Route path="login" element={<LoginPage />} />
+                <Route path="signup" element={<SignupPage />} />
+
+                <Route path="*" element={<PageNotFound />} />
+            </Routes>
 
             <Footer />
-        </div>
+        </BrowserRouter>
     );
 };
 
