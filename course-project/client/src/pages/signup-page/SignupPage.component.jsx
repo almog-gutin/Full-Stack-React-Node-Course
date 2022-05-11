@@ -1,24 +1,17 @@
-/* 
-    Create a Signup page. 
-
-    The Signup page should take 100% of the window width and it should have a 
-    minimum height of 100% of the window height - 80px. 
-
-    In the middle of the Signup page should be a card with rounded corners - 
-    1. The card should contain a title: Hello New User!
-    2. The card should contain a form including a first name, last name, email, password, repeat password inputs input with labels and a submit button: Sign Up
-*/
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './signup-page.styles.css';
 
 import Card from '../../components/card/Card.component';
 import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
+import Loader from '../../components/shared/loader/Loader.component';
 
 import { doesStringContainANumber } from '../../utils/string.utils';
 
 const SignupPage = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
     const [firstName, setFirstName] = useState('');
     const [isFirstNameValid, setIsFirstNameValid] = useState(true);
     const [firstNameErrorMessage, setFirstNameErrorMessage] = useState('');
@@ -158,7 +151,15 @@ const SignupPage = () => {
         console.log('SIGNUP');
     };
 
-    return (
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    return isLoading ? (
+        <Loader />
+    ) : (
         <main className="signup-page">
             <Card className="signup-page-card">
                 <h1>Hello New User!</h1>
@@ -219,9 +220,9 @@ const SignupPage = () => {
                         </div>
                     </div>
 
-                    <a href="#" className="login-link">
-                        Have an account already
-                    </a>
+                    <Link to="/login" className="login-link">
+                        Have an account already? Login...
+                    </Link>
 
                     <button type="submit">Signup</button>
                 </form>

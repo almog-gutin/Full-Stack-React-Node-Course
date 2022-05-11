@@ -1,16 +1,5 @@
-/* 
-    Create a Login page. 
-
-    The Login page should take 100% of the window width and it should have a 
-    minimum height of 100% of the window height - 80px. 
-
-    In the middle of the Login page should be a card with rounded corners - 
-    1. The card should contain a title: Welcome Back!
-    2. The card should contain a form including an email input and a password input with labels 
-    and a submit button: Login
-*/
-
-import React, { useReducer } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './login-page.styles.css';
 
@@ -19,10 +8,13 @@ import { updateEmailAction, updatedPasswordAction } from '../../actions/login-fo
 
 import Card from '../../components/card/Card.component';
 import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
+import Loader from '../../components/shared/loader/Loader.component';
 
 import { doesStringContainANumber } from '../../utils/string.utils';
 
 const LoginPage = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
     // Reducer State
     const [loginFormState, dispatchLoginFormState] = useReducer(loginReducer, LOGIN_FORM_INITITAL_STATE);
 
@@ -86,7 +78,15 @@ const LoginPage = () => {
         console.log('LOGIN');
     };
 
-    return (
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    return isLoading ? (
+        <Loader />
+    ) : (
         <main className="login-page">
             <Card className="login-page-card">
                 <h1>Welcome Back!</h1>
@@ -114,9 +114,9 @@ const LoginPage = () => {
                         />
                     </div>
 
-                    <a href="#" className="signup-link">
+                    <Link to="/signup" className="signup-link">
                         Don't have an account? Signup...
-                    </a>
+                    </Link>
 
                     <button type="submit">Login</button>
                 </form>

@@ -1,19 +1,20 @@
-/* 
-    Create a page not found/404 page. 
-
-    The 404 page should take 100% of the window width and it should have a 
-    minimum height of 100% of the window height - 80px. 
-
-    In the middle of the 404 page should contain the following - 
-    1. A title: 404
-    2. A button with a modern design that says - Go Back Home
-*/
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './page-not-found.styles.css';
 
+import Loader from '../../components/shared/loader/Loader.component';
+
 const PageNotFound = () => {
-    return (
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    return isLoading ? (
+        <Loader />
+    ) : (
         <main className="page-not-found">
             <h1>404</h1>
 
