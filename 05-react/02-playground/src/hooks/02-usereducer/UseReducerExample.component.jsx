@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from 'react';
-import './useReducer-example.styles.css';
+import './usereducer-example.styles.css';
 
 const COUNT_INITIAL_STATE = { value: 0 };
 
@@ -49,6 +49,8 @@ const UseReducerExample = () => {
 
     return (
         <div>
+            <h1>useReducer Example</h1>
+
             <div>{countState.value}</div>
 
             <button type="button" onClick={handleIncrement}>

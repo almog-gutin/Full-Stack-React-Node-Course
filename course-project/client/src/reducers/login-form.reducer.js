@@ -51,9 +51,10 @@ const loginReducer = (state, action) => {
 
             return updatedState;
         }
+        default: {
+            return state;
+        }
     }
-
-    return state;
 };
 
 export default loginReducer;

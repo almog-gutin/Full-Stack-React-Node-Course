@@ -1,0 +1,30 @@
+.main-header,
+.main-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.main-header {
+    height: 80px;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+main {
+    width: 100vw;
+    height: calc(100vh - 80px);
+}
+
+.main-footer {
+    height: 60px;
+}

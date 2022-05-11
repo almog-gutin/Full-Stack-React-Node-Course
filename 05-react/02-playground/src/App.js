@@ -8,6 +8,7 @@ import ComponentChildren from './components/component-children/ComponentChildren
 import UseStateExample from './hooks/01-usestate/UseStateExample.component';
 import UsestateExercise from './exercises/usestate-exercise/UsestateExercise.component';
 import UseReducerExample from './hooks/02-usereducer/UseReducerExample.component';
+import UseEffectExample from './hooks/03-useEffect-example/UseEffectExample.component';
 
 const App = () => {
     const handleClick = () => {
@@ -22,7 +23,7 @@ const App = () => {
 
     return (
         <div className="App">
-            <ComponentExample />
+            {/* <ComponentExample /> */}
 
             {/* Props = Properties (Attributes) */}
             <CustomButton type="button" text="Click Me!" className="modern-btn" handleClick={handleClick} />
@@ -48,6 +49,8 @@ const App = () => {
             <UsestateExercise />
 
             <UseReducerExample />
+
+            <UseEffectExample />
         </div>
     );
 };
