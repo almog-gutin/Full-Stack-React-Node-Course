@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useReducer, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './signup-page.styles.css';
+
+import signupFormReducer, { SIGNUP_FORM_INITITAL_STATE } from '../../reducers/signup-form.reducer';
+import * as signupFormActions from '../../actions/signup-form.actions';
 
 import Card from '../../components/card/Card.component';
 import FormInputContainer from '../../components/form/form-input-container/FormInputContainer.component';
@@ -10,83 +13,69 @@ import Loader from '../../components/shared/loader/Loader.component';
 import { doesStringContainANumber } from '../../utils/string.utils';
 
 const SignupPage = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
 
-    const [firstName, setFirstName] = useState('');
-    const [isFirstNameValid, setIsFirstNameValid] = useState(true);
-    const [firstNameErrorMessage, setFirstNameErrorMessage] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [isLastNameValid, setIsLastNameValid] = useState(true);
-    const [lastNameErrorMessage, setLastNameErrorMessage] = useState('');
-    const [email, setEmail] = useState('');
-    const [isEmailValid, setIsEmailValid] = useState(true);
-    const [emailErrorMessage, setEmailErrorMessage] = useState('');
-    const [password, setPassword] = useState('');
-    const [isPasswordValid, setIsPasswordValid] = useState(true);
-    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
-    const [repeatedPassword, setRepeatedPassword] = useState('');
-    const [isRepeatedPasswordValid, setIsRepeatedPasswordValid] = useState(true);
-    const [repeatedPasswordErrorMessage, setRepeatedPasswordErrorMessage] = useState('');
+    const [signupFormState, dipatchSignUpFormState] = useReducer(signupFormReducer, SIGNUP_FORM_INITITAL_STATE);
+
+    const [isLoading, setIsLoading] = useState(true);
 
     const handleFirstNameInput = (event) => {
         const firstNameInput = event.target.value.trim();
-        setFirstName(firstNameInput);
 
         if (firstNameInput === '') {
-            setFirstNameErrorMessage('Please enter your first name');
-            setIsFirstNameValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updateFirstName(firstNameInput, false, 'Please enter your first name')
+            );
 
             return;
         }
 
-        setFirstNameErrorMessage('');
-        setIsFirstNameValid(true);
+        dipatchSignUpFormState(signupFormActions.updateFirstName(firstNameInput, true, ''));
     };
 
     const handleLastNameInput = (event) => {
         const lastNameInput = event.target.value.trim();
-        setLastName(lastNameInput);
 
         if (lastNameInput === '') {
-            setLastNameErrorMessage('Please enter your last name');
-            setIsLastNameValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updateLastName(lastNameInput, false, 'Please enter your last name')
+            );
 
             return;
         }
 
-        setLastNameErrorMessage('');
-        setIsLastNameValid(true);
+        dipatchSignUpFormState(signupFormActions.updateLastName(lastNameInput, true, ''));
     };
 
     const handleEmailInput = (event) => {
         const emailInput = event.target.value.toLowerCase().trim();
-        setEmail(emailInput);
 
         if (emailInput === '') {
-            setEmailErrorMessage('Please enter an email address');
-            setIsEmailValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updateEmailAction(emailInput, false, 'Please enter an email address')
+            );
 
             return;
         }
 
         if (!isEmail(emailInput)) {
-            setEmailErrorMessage('Please enter a valid email address');
-            setIsEmailValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updateEmailAction(emailInput, false, 'Please enter a valid email address')
+            );
 
             return;
         }
 
-        setEmailErrorMessage('');
-        setIsEmailValid(true);
+        dipatchSignUpFormState(signupFormActions.updateEmailAction(emailInput, true, ''));
     };
 
     const handlePasswordInput = (event) => {
         const passwordInput = event.target.value.trim();
-        setPassword(passwordInput);
 
         if (passwordInput === '') {
-            setPasswordErrorMessage('Please enter a password');
-            setIsPasswordValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updatedPasswordAction(passwordInput, false, 'Please enter a password')
+            );
 
             return;
         }
@@ -96,59 +85,69 @@ const SignupPage = () => {
             !doesStringContainANumber(passwordInput) ||
             passwordInput === 'password1'
         ) {
-            setPasswordErrorMessage(
-                'You must enter a password with the length of 8-20 characters and mist contain at least 1 number'
+            dipatchSignUpFormState(
+                signupFormActions.updatedPasswordAction(
+                    passwordInput,
+                    false,
+                    'You must enter a password with the length of 8-20 characters and mist contain at least 1 number'
+                )
             );
-            setIsPasswordValid(false);
 
             return;
         }
 
-        setPasswordErrorMessage('');
-        setIsPasswordValid(true);
+        dipatchSignUpFormState(signupFormActions.updatedPasswordAction(passwordInput, true, ''));
     };
 
     const handleRepeatedPasswordInput = (event) => {
         const repeatedPasswordInput = event.target.value.trim();
-        setRepeatedPassword(repeatedPasswordInput);
 
         if (repeatedPasswordInput === '') {
-            setRepeatedPasswordErrorMessage('Please enter your password again');
-            setIsRepeatedPasswordValid(false);
+            dipatchSignUpFormState(
+                signupFormActions.updatedRepeatedPasswordAction(
+                    repeatedPasswordInput,
+                    false,
+                    'Please enter your password again'
+                )
+            );
 
             return;
         }
 
-        if (repeatedPasswordInput !== password) {
-            setRepeatedPasswordErrorMessage("Your passwords don't match");
-            setIsRepeatedPasswordValid(false);
+        if (repeatedPasswordInput !== signupFormState.values.password) {
+            dipatchSignUpFormState(
+                signupFormActions.updatedRepeatedPasswordAction(
+                    repeatedPasswordInput,
+                    false,
+                    "Your passwords don't match"
+                )
+            );
 
             return;
         }
 
-        setRepeatedPasswordErrorMessage('');
-        setIsRepeatedPasswordValid(true);
+        dipatchSignUpFormState(signupFormActions.updatedRepeatedPasswordAction(repeatedPasswordInput, true, ''));
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if (
-            !isFirstNameValid ||
-            firstName === '' ||
-            !isLastNameValid ||
-            lastName === '' ||
-            !isEmailValid ||
-            email === '' ||
-            !isPasswordValid ||
-            password === '' ||
-            !isRepeatedPasswordValid ||
-            repeatedPassword === ''
+            !signupFormState.validities.firstName ||
+            !signupFormState.validities.lastName ||
+            !signupFormState.validities.email ||
+            !signupFormState.validities.password ||
+            !signupFormState.validities.repeatedPassword ||
+            signupFormState.values.firstName === '' ||
+            signupFormState.values.lastName === '' ||
+            signupFormState.values.email === '' ||
+            signupFormState.values.password === '' ||
+            signupFormState.values.repeatedPassword === ''
         ) {
             return;
         }
 
-        console.log('SIGNUP');
+        navigate('/tasks');
     };
 
     useEffect(() => {
@@ -170,8 +169,8 @@ const SignupPage = () => {
                             id="first-name"
                             labelText="First Name:"
                             required={false}
-                            isValid={isFirstNameValid}
-                            errorMessage={firstNameErrorMessage}
+                            isValid={signupFormState.validities.firstName}
+                            errorMessage={signupFormState.errorMessages.firstName}
                             handleInput={handleFirstNameInput}
                         />
 
@@ -179,18 +178,18 @@ const SignupPage = () => {
                             id="last-name"
                             labelText="Last Name:"
                             required={false}
-                            isValid={isLastNameValid}
-                            errorMessage={lastNameErrorMessage}
+                            isValid={signupFormState.validities.lastName}
+                            errorMessage={signupFormState.errorMessages.lastName}
                             handleInput={handleLastNameInput}
                         />
 
                         <FormInputContainer
                             id="email"
                             labelText="Email:"
-                            required={true}
+                            required={false}
                             type="email"
-                            isValid={isEmailValid}
-                            errorMessage={emailErrorMessage}
+                            isValid={signupFormState.validities.email}
+                            errorMessage={signupFormState.errorMessages.email}
                             handleInput={handleEmailInput}
                         />
 
@@ -199,8 +198,8 @@ const SignupPage = () => {
                             labelText="Password:"
                             required={false}
                             type="password"
-                            isValid={isPasswordValid}
-                            errorMessage={passwordErrorMessage}
+                            isValid={signupFormState.validities.password}
+                            errorMessage={signupFormState.errorMessages.password}
                             handleInput={handlePasswordInput}
                         />
 
@@ -209,8 +208,8 @@ const SignupPage = () => {
                             labelText="Repeated Password:"
                             required={false}
                             type="password"
-                            isValid={isRepeatedPasswordValid}
-                            errorMessage={repeatedPasswordErrorMessage}
+                            isValid={signupFormState.validities.repeatedPassword}
+                            errorMessage={signupFormState.errorMessages.repeatedPassword}
                             handleInput={handleRepeatedPasswordInput}
                         />
                     </div>
@@ -227,108 +226,3 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
-
-/* 
-    <FormInputContainer
-        id="first-name"
-        labelText="First Name:"
-        required={false}
-        isValid={isFirstNameValid}
-        errorMessage={firstNameErrorMessage}
-        handleInput={handleFirstNameInput}
-    />
-
-    <FormInputContainer
-        id="last-name"
-        labelText="Last Name:"
-        required={false}
-        isValid={isLastNameValid}
-        errorMessage={lastNameErrorMessage}
-        handleInput={handleLastNameInput}
-    />
-
-    <FormInputContainer
-        id="email"
-        labelText="Email:"
-        required={true}
-        type="email"
-        isValid={isEmailValid}
-        errorMessage={emailErrorMessage}
-        handleInput={handleEmailInput}
-    />
-
-    <FormInputContainer
-        id="password"
-        labelText="Password:"
-        required={false}
-        type="password"
-        isValid={isPasswordValid}
-        errorMessage={passwordErrorMessage}
-        handleInput={handlePasswordInput}
-    />
-
-    <FormInputContainer
-        id="repeated-password"
-        labelText="Repeated Password:"
-        required={false}
-        type="password"
-        isValid={isRepeatedPasswordValid}
-        errorMessage={repeatedPasswordErrorMessage}
-        handleInput={handleRepeatedPasswordInput}
-    />
-*/
-
-/* 
-    <div className="form-input-container">
-        <label className="form-label" htmlFor="first-name">
-            First Name:
-        </label>
-
-        <input onInput={handleFirstNameInput} className="form-input" id="first-name" type="text" />
-
-        {!isFirstNameValid && <div className="error-message">{firstNameErrorMessage}</div>}
-    </div>
-
-    <div className="form-input-container">
-        <label className="form-label" htmlFor="last-name">
-            Last Name:
-        </label>
-
-        <input onInput={handleLastNameInput} className="form-input" id="last-name" type="text" />
-
-        {!isLastNameValid && <div className="error-message">{lastNameErrorMessage}</div>}
-    </div>
-
-    <div className="form-input-container">
-        <label className="form-label" htmlFor="email">
-            Email:
-        </label>
-
-        <input onInput={handleEmailInput} className="form-input" id="email" type="email" />
-
-        {!isEmailValid && <div className="error-message">{emailErrorMessage}</div>}
-    </div>
-
-    <div className="form-input-container">
-        <label htmlFor="password">Password:</label>
-
-        <input onInput={handlePasswordInput} className="form-input" id="password" type="password" />
-
-        {!isPasswordValid && <div className="error-message">{passwordErrorMessage}</div>}
-    </div>
-
-    <div className="form-input-container">
-        <label htmlFor="repeat-password">Repeat Password:</label>
-
-        <input
-            onInput={handleRepeatedPasswordInput}
-            className="form-input"
-            id="reapeat-password"
-            type="password"
-        />
-
-        {!isRepeatedPasswordValid && (
-            <div className="error-message">{repeatedPasswordErrorMessage}</div>
-        )}
-    </div>
-*/

@@ -7,6 +7,7 @@ import HomePage from './pages/home-page/HomePage.component';
 import LoginPage from './pages/login-page/LoginPage.component';
 import SignupPage from './pages/signup-page/SignupPage.component';
 import PageNotFound from './pages/page-not-found/PageNotFound.component';
+import TasksPage from './pages/tasks-page/TasksPage.component';
 
 const App = () => {
     return (
@@ -18,6 +19,8 @@ const App = () => {
 
                 <Route path="login" element={<LoginPage />} />
                 <Route path="signup" element={<SignupPage />} />
+
+                <Route path="tasks" element={<TasksPage />} />
 
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
