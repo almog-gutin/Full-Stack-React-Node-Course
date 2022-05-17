@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header.styles.css';
 
-// The header component needs to take 100% of the window and its height should be 80px;
-// The header needs to have a title inside the element: Todo List on the left side.
-// Add a background color, add a text color.
+import Sidebar from '../sidebar/Sidebar.component';
 
 const Header = () => {
+    const [sidebarClass, setSidebarClass] = useState('');
+
+    const showSidebar = () => setSidebarClass('show');
+
+    const hideSidebar = () => setSidebarClass('');
+
     return (
         <header className="main-header">
             <h1>Todo List</h1>
+
+            <button className="hamburger-btn" onClick={showSidebar}>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+            </button>
+
+            <Sidebar className={sidebarClass} hideSidebar={hideSidebar} />
         </header>
     );
 };
