@@ -1,3 +1,5 @@
+import Student from '../models/student.model.js';
+
 export const getStudents = async (req, res) => {
     try {
         console.log(req);
@@ -16,15 +18,13 @@ export const getStudents = async (req, res) => {
 
 export const createStudent = async (req, res) => {
     const data = req.body;
-    console.log(data);
+    console.log('Data:', data);
+
+    const student = new Student(data);
+    console.log('Student:', student);
 
     try {
-        const student = {
-            firstName: data.firstName,
-            lastName: data.lastName,
-            age: data.age,
-            email: data.email,
-        };
+        await student.save();
 
         res.status(201).send({
             status: 201,
@@ -32,7 +32,15 @@ export const createStudent = async (req, res) => {
             data: student,
             message: 'Student was created successfully',
         });
-    } catch (err) {}
+    } catch (err) {
+        console.log(err);
+
+        res.status(400).send({
+            status: 400,
+            statusText: 'Bad Request',
+            message: '',
+        });
+    }
 };
 
 export const doesStudentExists = async (req, res) => {

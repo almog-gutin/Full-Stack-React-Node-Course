@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import isEmail from 'validator/lib/isEmail';
-import isStrongPassword from 'validator/lib/isStrongPassword';
+import isEmail from 'validator/lib/isEmail.js';
+import isStrongPassword from 'validator/lib/isStrongPassword.js';
 
 const studentSchema = new mongoose.Schema({
     firstName: {
@@ -33,9 +33,18 @@ const studentSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: [true, 'Password is required'],
-        minlength: [8, 'Password must be at least 8 characters'],
+        minlength: [9, 'Password must be at least 9 characters'],
         maxlength: 20,
-        validate(value) {},
+        validate(value) {
+            if (
+                !isStrongPassword(value, {
+                    minLength: 9,
+                    minNumbers: 2,
+                })
+            ) {
+                throw new Error('Password is not strong enough');
+            }
+        },
     },
 });
 
