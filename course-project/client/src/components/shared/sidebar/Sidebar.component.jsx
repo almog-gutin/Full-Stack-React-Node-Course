@@ -2,22 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar.styles.css';
 
-const Sidebar = ({ className, hideSidebar }) => {
+const Sidebar = (props) => {
     return (
-        <div className={`backdrop ${className}`}>
+        <div className={`backdrop ${props.className}`}>
             <div className="sidebar">
-                <button type="button" className="close-btn" onClick={hideSidebar}>
+                <button type="button" className="close-btn" onClick={props.hideSidebar}>
                     X
                 </button>
 
                 <ul className="sidebar-items">
                     <li className="sidebar-item">
-                        <Link to="/" onClick={hideSidebar}>
+                        <Link to="/" onClick={props.hideSidebar}>
                             Home
                         </Link>
                     </li>
                     <li className="sidebar-item">
-                        <Link to="/login" onClick={hideSidebar}>
+                        <Link to="/login" onClick={props.hideSidebar}>
                             Login
                         </Link>
                     </li>
