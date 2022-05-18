@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import environments from '../config/environments.js';
 
+import connectToMongoDB from './databases/mongoose.db.js';
+
 import studentRouter from './routers/student.router.js';
 
 dotenv.config();
@@ -17,6 +19,8 @@ app.use(cors());
 
 app.use(studentRouter);
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`Server is running on port: ${PORT}`);
+
+    await connectToMongoDB();
 });
