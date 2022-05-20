@@ -15,7 +15,6 @@ export const createUser = async (req, res) => {
             message: 'User account was created successfully',
         });
     } catch (err) {
-        console.log(err);
         res.status(400).send({
             status: 400,
             statusText: 'Bad Request',
