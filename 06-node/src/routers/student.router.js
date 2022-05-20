@@ -10,6 +10,12 @@ router.post('/students/new', studentController.createStudent);
 
 router.get('/students/:studentName/:age', studentController.doesStudentExists);
 
-router.get('/students/get', studentController.getStudentsByIndex);
+router.get('/students/:studentID', studentController.getStudent);
+
+router.patch('/students/:studentID', studentController.updateStudent);
+
+router.delete('/students/:studentID', studentController.deleteStudent);
+
+router.post('/students/login', studentController.login);
 
 export default router;
