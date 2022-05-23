@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import isEmail from 'validator/lib/isEmail.js';
 import isStrongPassword from 'validator/lib/isStrongPassword.js';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import environments from '../../config/environments.js';
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -32,7 +35,6 @@ const userSchema = new mongoose.Schema({
         trim: true,
         required: [true, 'Password is required'],
         minlength: 8,
-        maxlength: 20,
         validate(value) {
             if (!isStrongPassword(value)) {
                 throw new Error(
@@ -41,7 +43,57 @@ const userSchema = new mongoose.Schema({
             }
         },
     },
+    tokens: [
+        {
+            token: {
+                type: String,
+                required: true,
+            },
+        },
+    ],
 });
+
+userSchema.pre('save', async function (next) {
+    const user = this;
+
+    if (user.isModified('password')) {
+        user.password = await bcrypt.hash(user.password, 8);
+    }
+
+    next();
+});
+
+userSchema.methods.generateAuthToken = async function () {
+    const user = this;
+
+    const token = jwt.sign({ _id: user._id }, environments.TOKEN_SECRET);
+
+    user.tokens.push({ token: token });
+    await user.save();
+
+    return token;
+};
+
+userSchema.statics.finduserByEmailAndPassword = async (email, password) => {
+    const user = await User.findOne({ email: email });
+    if (!user) throw new Error('Unable to login');
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) throw new Error('Unable to login');
+
+    return user;
+};
+
+userSchema.methods.toJSON = function () {
+    const user = this;
+
+    const userObj = user.toObject();
+    delete userObj.password;
+    delete userObj.tokens;
+    delete userObj.__v;
+
+    return userObj;
+};
 
 const User = mongoose.model('User', userSchema);
 
