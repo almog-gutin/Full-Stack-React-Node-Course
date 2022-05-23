@@ -1,0 +1,47 @@
+.add-tasks-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+    max-width: 800px;
+}
+
+.add-tasks-form .form-group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1.5rem;
+
+    width: 100%;
+    height: 3rem;
+}
+
+.add-tasks-form .form-group input {
+    width: 80%;
+    height: 100%;
+    padding: 1rem;
+
+    font-size: 1rem;
+}
+
+.add-tasks-form .add-task-btn {
+    width: 100px;
+    height: 100%;
+
+    background-color: #0070c9;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background-color: #0261ae;
+}
+
+.add-task-btn:disabled {
+    background-color: #494949;
+    cursor: not-allowed;
+}

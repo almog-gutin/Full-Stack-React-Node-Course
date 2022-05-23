@@ -16,12 +16,12 @@ const Sidebar = (props) => {
                             Home
                         </Link>
                     </li>
+
                     <li className="sidebar-item">
                         <Link to="/login" onClick={props.hideSidebar}>
                             Login
                         </Link>
                     </li>
-                    )
                 </ul>
             </div>
         </div>

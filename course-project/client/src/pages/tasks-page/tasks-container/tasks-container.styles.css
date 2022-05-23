@@ -1,0 +1,15 @@
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 800px;
+}
+
+.empty-list {
+    color: #1d1d1f;
+    font-size: 24px;
+    font-weight: 700;
+}

@@ -1,10 +1,15 @@
 import React from 'react';
 import './tasks-page.styles.css';
 
+import AddTasksForm from './add-tasks-form/AddTasksForm.component';
+import TasksContainer from './tasks-container/TasksContainer.component';
+
 const TasksPage = () => {
     return (
         <main className="tasks-page">
-            <h1>Tasks Page</h1>
+            <AddTasksForm />
+
+            <TasksContainer />
         </main>
     );
 };
