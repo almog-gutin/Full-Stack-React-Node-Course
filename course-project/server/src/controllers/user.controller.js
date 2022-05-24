@@ -54,20 +54,10 @@ export const login = async (req, res) => {
 };
 
 export const logout = async (req, res) => {
-    const userID = req.params.userID;
-    const token = req.body.token;
-
-    if (!token) {
-        return res.status(401).send({
-            status: 401,
-            statusText: 'Unauthorized',
-            message: '',
-        });
-    }
+    const user = req.user;
+    const token = req.token;
 
     try {
-        const user = await User.findById(userID);
-
         user.tokens = user.tokens.filter((tokenDoc) => tokenDoc.token !== token);
         await user.save();
 
