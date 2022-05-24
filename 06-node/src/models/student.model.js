@@ -5,58 +5,68 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import environments from '../../config/environments.js';
 
-const studentSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        required: true,
-    },
-    lastName: {
-        type: String,
-        trim: true,
-        uppercase: true,
-        required: [true, 'Last name is required'],
-    },
-    age: {
-        type: Number,
-        min: 18,
-        max: 34,
-    },
-    email: {
-        type: String,
-        trim: true,
-        required: true,
-        unique: [true, 'Email must be unique'],
-        validate(value) {
-            if (!isEmail(value)) throw new Error('Email is invalid');
+const studentSchema = new mongoose.Schema(
+    {
+        firstName: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            required: true,
         },
-    },
-    password: {
-        type: String,
-        trim: true,
-        required: [true, 'Password is required'],
-        minlength: [9, 'Password must be at least 9 characters'],
-        validate(value) {
-            if (
-                !isStrongPassword(value, {
-                    minLength: 9,
-                    minNumbers: 2,
-                })
-            ) {
-                throw new Error('Password is not strong enough');
-            }
+        lastName: {
+            type: String,
+            trim: true,
+            uppercase: true,
+            required: [true, 'Last name is required'],
         },
-    },
-    tokens: [
-        {
-            token: {
-                type: String,
-                required: true,
+        age: {
+            type: Number,
+            min: 18,
+            max: 34,
+        },
+        email: {
+            type: String,
+            trim: true,
+            required: true,
+            unique: [true, 'Email must be unique'],
+            validate(value) {
+                if (!isEmail(value)) throw new Error('Email is invalid');
             },
         },
-    ],
-});
+        password: {
+            type: String,
+            trim: true,
+            required: [true, 'Password is required'],
+            minlength: [9, 'Password must be at least 9 characters'],
+            validate(value) {
+                if (
+                    !isStrongPassword(value, {
+                        minLength: 9,
+                        minNumbers: 2,
+                    })
+                ) {
+                    throw new Error('Password is not strong enough');
+                }
+            },
+        },
+        tokens: [
+            {
+                token: {
+                    type: String,
+                    required: true,
+                },
+            },
+        ],
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        toObject: {
+            virtuals: true,
+        },
+    }
+);
 
 // Middleware for hashing a user's password before saving to the database
 studentSchema.pre('save', async function (next) {
@@ -98,12 +108,20 @@ studentSchema.methods.toJSON = function () {
 
     // This parses the mongodb document to javascript object
     const studentObj = student.toObject();
+    console.log(studentObj);
     delete studentObj.password;
     delete studentObj.tokens;
     delete studentObj.__v;
 
     return studentObj;
 };
+
+// Virtual field/property for the students homework
+studentSchema.virtual('homeworks', {
+    ref: 'Homework',
+    localField: '_id',
+    foreignField: 'studentID',
+});
 
 const Student = mongoose.model('Student', studentSchema);
 
