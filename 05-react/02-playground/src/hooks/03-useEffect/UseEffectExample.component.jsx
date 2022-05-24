@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './useeffect-example.styles.css';
+import './useEffect-example.styles.css';
 
 const UseEffectExample = () => {
     const [resourceType, setResourceType] = useState('products');

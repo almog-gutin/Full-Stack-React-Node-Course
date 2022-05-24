@@ -168,3 +168,28 @@ export const login = async (req, res) => {
         });
     }
 };
+
+export const logout = async (req, res) => {
+    const student = req.student;
+    const token = req.token;
+
+    try {
+        student.tokens = student.tokens.filter((tokenDoc) => tokenDoc.token !== token);
+
+        await student.save();
+
+        res.status(200).send({
+            status: 200,
+            statusText: 'Ok',
+            data: {},
+            message: 'Student was logout successfully',
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            status: 500,
+            statusText: 'Internal Server Error',
+            message: '',
+        });
+    }
+};

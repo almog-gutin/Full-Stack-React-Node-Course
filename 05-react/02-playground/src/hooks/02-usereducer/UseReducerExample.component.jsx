@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from 'react';
-import './usereducer-example.styles.css';
+import './useReducer-example.styles.css';
 
 const COUNT_INITIAL_STATE = { value: 0 };
 
@@ -18,9 +18,9 @@ const countReducer = (state, action) => {
 
             return { value: updatedCountValue };
         }
+        default:
+            return state;
     }
-
-    return state;
 };
 
 const UseReducerExample = () => {

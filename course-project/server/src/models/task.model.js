@@ -23,4 +23,4 @@ taskSchema.methods.toJSON = function () {
 
 const Task = mongoose.model('Task', taskSchema);
 
-export default User;
+export default Task;

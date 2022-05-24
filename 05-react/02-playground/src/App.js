@@ -7,8 +7,8 @@ import Child from './components/child/Child.component';
 import ComponentChildren from './components/component-children/ComponentChildren.component';
 import UseStateExample from './hooks/01-usestate/UseStateExample.component';
 import UsestateExercise from './exercises/usestate-exercise/UsestateExercise.component';
-import UseReducerExample from './hooks/02-usereducer/UseReducerExample.component';
-import UseEffectExample from './hooks/03-useEffect-example/UseEffectExample.component';
+import UseReducerExample from './hooks/02-useReducer/UseReducerExample.component';
+import UseEffectExample from './hooks/03-useEffect/UseEffectExample.component';
 
 const App = () => {
     const handleClick = () => {

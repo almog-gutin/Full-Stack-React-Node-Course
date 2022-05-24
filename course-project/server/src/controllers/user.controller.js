@@ -34,7 +34,7 @@ export const login = async (req, res) => {
             throw new Error();
         }
 
-        const user = await User.finduserByEmailAndPassword(email, password);
+        const user = await User.findUserByEmailAndPassword(email, password);
         const token = await user.generateAuthToken();
 
         res.send({
