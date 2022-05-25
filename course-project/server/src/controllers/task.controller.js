@@ -56,6 +56,28 @@ export const getTasks = async (req, res) => {
     }
 };
 
+export const updateTask = async (req, res) => {
+    const taskID = req.params.taskID;
+    const data = req.body;
+
+    try {
+        await Task.findByIdAndUpdate(taskID, data);
+
+        res.status(202).send({
+            status: 202,
+            statusText: 'Accepted',
+            data: {},
+            message: 'Task was updated successfully',
+        });
+    } catch (err) {
+        res.status(500).send({
+            status: 500,
+            statusText: 'Internal Server Error',
+            message: '',
+        });
+    }
+};
+
 export const deleteTask = async (req, res) => {
     const taskID = req.params.taskID;
 

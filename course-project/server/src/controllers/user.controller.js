@@ -86,7 +86,7 @@ export const getAccountDetails = async (req, res) => {
         res.send({
             status: 200,
             statusText: 'Ok',
-            data: user,
+            data: { user: user },
             message: '',
         });
     } catch (err) {
