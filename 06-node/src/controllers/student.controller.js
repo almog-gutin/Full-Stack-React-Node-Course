@@ -185,6 +185,28 @@ export const logout = async (req, res) => {
             message: 'Student was logout successfully',
         });
     } catch (err) {
+        res.status(500).send({
+            status: 500,
+            statusText: 'Internal Server Error',
+            message: '',
+        });
+    }
+};
+
+export const getAccountDetails = async (req, res) => {
+    const student = req.student;
+
+    try {
+        // Add the virtual fields: populate(virtualFieldName)
+        await student.populate('homeworks');
+
+        res.send({
+            status: 200,
+            statusText: 'Ok',
+            data: student,
+            message: '',
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).send({
             status: 500,

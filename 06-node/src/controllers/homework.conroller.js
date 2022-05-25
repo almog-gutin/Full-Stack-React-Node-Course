@@ -27,3 +27,26 @@ export const createHomework = async (req, res) => {
         });
     }
 };
+
+export const getHomework = async (req, res) => {
+    const homeworkID = req.params.homeworkID;
+
+    try {
+        const homework = await Homework.findById(homeworkID);
+
+        await homework.populate();
+
+        res.send({
+            status: 200,
+            statusText: 'Ok',
+            data: homework,
+            message: '',
+        });
+    } catch (err) {
+        res.status(400).send({
+            status: 400,
+            statusText: 'Bad Request',
+            message: '',
+        });
+    }
+};

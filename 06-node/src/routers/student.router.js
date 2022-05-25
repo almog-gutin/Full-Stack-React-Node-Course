@@ -12,6 +12,8 @@ router.post('/students/new', studentController.createStudent);
 
 router.get('/students/:studentName/:age', studentController.doesStudentExists);
 
+router.get('/students/me', studentAuth, studentController.getAccountDetails);
+
 router.get('/students/:studentID', studentController.getStudent);
 
 router.patch('/students/:studentID', studentController.updateStudent);

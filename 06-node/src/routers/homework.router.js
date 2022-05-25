@@ -7,4 +7,6 @@ const router = new express.Router();
 
 router.post('/homeworks/new', studentAuth, homeworkController.createHomework);
 
+router.get('/homeworks/:homeworkID', studentAuth, homeworkController.getHomework);
+
 export default router;

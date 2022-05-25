@@ -118,9 +118,9 @@ studentSchema.methods.toJSON = function () {
 
 // Virtual field/property for the students homework
 studentSchema.virtual('homeworks', {
-    ref: 'Homework',
-    localField: '_id',
-    foreignField: 'studentID',
+    ref: 'Homework', // ref=reference - Which model will be referenced
+    localField: '_id', // A field that is locally on the model that you are adding virtual fields on
+    foreignField: 'studentID', // A field from the outside model, that will be connected to the local field
 });
 
 const Student = mongoose.model('Student', studentSchema);
