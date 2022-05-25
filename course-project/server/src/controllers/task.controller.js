@@ -55,3 +55,24 @@ export const getTasks = async (req, res) => {
         });
     }
 };
+
+export const deleteTask = async (req, res) => {
+    const taskID = req.params.taskID;
+
+    try {
+        await Task.findByIdAndDelete(taskID);
+
+        res.send({
+            status: 200,
+            statusText: 'Ok',
+            data: {},
+            message: 'Task was deleted successfully',
+        });
+    } catch (err) {
+        res.status(500).send({
+            status: 500,
+            statusText: 'Internal Server Error',
+            message: '',
+        });
+    }
+};
