@@ -5,53 +5,63 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import environments from '../../config/environments.js';
 
-const userSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        required: [true, 'First name is required'],
-    },
-    lastName: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        required: [true, 'Last name is required'],
-    },
-    email: {
-        type: String,
-        trim: true,
-        lowercase: true,
-        required: [true, 'Email is required'],
-        unique: [true, 'Email is taken already'],
-        validate(value) {
-            if (!isEmail(value)) {
-                throw new Error('Email is invalid');
-            }
+const userSchema = new mongoose.Schema(
+    {
+        firstName: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            required: [true, 'First name is required'],
         },
-    },
-    password: {
-        type: String,
-        trim: true,
-        required: [true, 'Password is required'],
-        minlength: 8,
-        validate(value) {
-            if (!isStrongPassword(value)) {
-                throw new Error(
-                    'Password must contain at least 8 charachters, at least 1 uppercase letter, and at least one number'
-                );
-            }
+        lastName: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            required: [true, 'Last name is required'],
         },
-    },
-    tokens: [
-        {
-            token: {
-                type: String,
-                required: true,
+        email: {
+            type: String,
+            trim: true,
+            lowercase: true,
+            required: [true, 'Email is required'],
+            unique: [true, 'Email is taken already'],
+            validate(value) {
+                if (!isEmail(value)) {
+                    throw new Error('Email is invalid');
+                }
             },
         },
-    ],
-});
+        password: {
+            type: String,
+            trim: true,
+            required: [true, 'Password is required'],
+            minlength: 8,
+            validate(value) {
+                if (!isStrongPassword(value)) {
+                    throw new Error(
+                        'Password must contain at least 8 charachters, at least 1 uppercase letter, and at least one number'
+                    );
+                }
+            },
+        },
+        tokens: [
+            {
+                token: {
+                    type: String,
+                    required: true,
+                },
+            },
+        ],
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        toObject: {
+            virtuals: true,
+        },
+    }
+);
 
 userSchema.pre('save', async function (next) {
     const user = this;
@@ -94,6 +104,12 @@ userSchema.methods.toJSON = function () {
 
     return userObj;
 };
+
+userSchema.virtual('tasks', {
+    ref: 'Task',
+    localField: '_id',
+    foreignField: 'userID',
+});
 
 const User = mongoose.model('User', userSchema);
 

@@ -34,7 +34,7 @@ export const getHomework = async (req, res) => {
     try {
         const homework = await Homework.findById(homeworkID);
 
-        await homework.populate();
+        await homework.populate('studentID');
 
         res.send({
             status: 200,

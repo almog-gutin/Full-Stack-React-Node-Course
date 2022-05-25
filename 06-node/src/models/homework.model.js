@@ -4,6 +4,7 @@ const homeworkSchema = new mongoose.Schema({
     studentID: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true,
+        ref: 'Student',
     },
     title: {
         type: String,

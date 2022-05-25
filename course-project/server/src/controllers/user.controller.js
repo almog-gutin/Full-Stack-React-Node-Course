@@ -1,4 +1,5 @@
 import User from '../models/user.model.js';
+import Task from '../models/task.model.js';
 
 export const createUser = async (req, res) => {
     const userData = req.body;
@@ -68,6 +69,28 @@ export const logout = async (req, res) => {
             message: 'User logout was successful',
         });
     } catch (err) {
+        res.status(500).send({
+            status: 500,
+            statusText: 'Internal Server Error',
+            message: '',
+        });
+    }
+};
+
+export const getAccountDetails = async (req, res) => {
+    const user = req.user;
+
+    try {
+        await user.populate('tasks');
+
+        res.send({
+            status: 200,
+            statusText: 'Ok',
+            data: user,
+            message: '',
+        });
+    } catch (err) {
+        console.log(err);
         res.status(500).send({
             status: 500,
             statusText: 'Internal Server Error',
