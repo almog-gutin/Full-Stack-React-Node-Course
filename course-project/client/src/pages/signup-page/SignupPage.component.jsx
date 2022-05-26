@@ -188,6 +188,10 @@ const SignupPage = () => {
     };
 
     useEffect(() => {
+        if (authContextValue.userToken) {
+            navigate('/tasks');
+        }
+
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);

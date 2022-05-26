@@ -17,7 +17,7 @@ import { doesStringContainANumber } from '../../utils/string.utils';
 const LoginPage = () => {
     const navigate = useNavigate();
 
-    const authConextValue = useContext(AuthContext);
+    const authContextValue = useContext(AuthContext);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -106,7 +106,7 @@ const LoginPage = () => {
             const token = responseData.data.token;
 
             localStorage.setItem('user-token', token);
-            authConextValue.setUserToken(token);
+            authContextValue.setUserToken(token);
 
             navigate('/tasks');
         } catch (err) {
@@ -115,6 +115,10 @@ const LoginPage = () => {
     };
 
     useEffect(() => {
+        if (authContextValue.userToken) {
+            navigate('/tasks');
+        }
+
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);
