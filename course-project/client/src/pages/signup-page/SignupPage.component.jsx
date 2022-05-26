@@ -129,7 +129,7 @@ const SignupPage = () => {
         dipatchSignUpFormState(signupFormActions.updatedRepeatedPasswordAction(repeatedPasswordInput, true, ''));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (
@@ -147,7 +147,39 @@ const SignupPage = () => {
             return;
         }
 
-        navigate('/tasks');
+        const signupFormValues = signupFormState.values;
+        const data = {
+            firstName: signupFormValues.firstName,
+            lastName: signupFormValues.lastName,
+            email: signupFormValues.email,
+            password: signupFormValues.password,
+        };
+
+        try {
+            // Fetch a response from the server - create a server request
+            const response = await fetch('http://localhost:3000/users/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            // Check if the response is valid
+            if (response.status !== 201) {
+                throw new Error();
+            }
+
+            // Convert the response from JSON to object
+            const responseData = await response.json();
+
+            console.log(responseData);
+        } catch (err) {
+            console.log(true);
+            alert('Something went wrong!');
+        }
+
+        // navigate('/tasks');
     };
 
     useEffect(() => {
