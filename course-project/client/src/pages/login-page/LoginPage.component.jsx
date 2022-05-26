@@ -1,7 +1,9 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, { useReducer, useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './login-page.styles.css';
+
+import { AuthContext } from '../../contexts/Auth.context';
 
 import loginReducer, { LOGIN_FORM_INITITAL_STATE } from '../../reducers/login-form.reducer';
 import { updateEmailAction, updatedPasswordAction } from '../../actions/login-form.actions';
@@ -14,6 +16,9 @@ import { doesStringContainANumber } from '../../utils/string.utils';
 
 const LoginPage = () => {
     const navigate = useNavigate();
+
+    const authConextValue = useContext(AuthContext);
+
     const [isLoading, setIsLoading] = useState(true);
 
     // Reducer State
@@ -66,7 +71,7 @@ const LoginPage = () => {
         dispatchLoginFormState(updatedPasswordAction(passwordInput, true, ''));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const values = loginFormState.values;
@@ -76,7 +81,37 @@ const LoginPage = () => {
             return;
         }
 
-        navigate('/tasks');
+        const loginFormValues = loginFormState.values;
+        const data = {
+            email: loginFormValues.email,
+            password: loginFormValues.password,
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/users/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            // response.ok is equal to true/false if the response returned status 200
+            /// response.ok = response.status === 200
+            if (!response.ok) {
+                throw new Error();
+            }
+
+            const responseData = await response.json();
+            const token = responseData.data.token;
+
+            localStorage.setItem('user-token', token);
+            authConextValue.setUserToken(token);
+
+            navigate('/tasks');
+        } catch (err) {
+            alert('Something went wrong!');
+        }
     };
 
     useEffect(() => {
