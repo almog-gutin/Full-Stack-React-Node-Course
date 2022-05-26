@@ -1,7 +1,9 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useReducer, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './signup-page.styles.css';
+
+import { AuthContext } from '../../contexts/Auth.context';
 
 import signupFormReducer, { SIGNUP_FORM_INITITAL_STATE } from '../../reducers/signup-form.reducer';
 import * as signupFormActions from '../../actions/signup-form.actions';
@@ -14,6 +16,8 @@ import { doesStringContainANumber } from '../../utils/string.utils';
 
 const SignupPage = () => {
     const navigate = useNavigate();
+
+    const authContextValue = useContext(AuthContext);
 
     const [signupFormState, dipatchSignUpFormState] = useReducer(signupFormReducer, SIGNUP_FORM_INITITAL_STATE);
 
@@ -172,14 +176,15 @@ const SignupPage = () => {
 
             // Convert the response from JSON to object
             const responseData = await response.json();
+            const token = responseData.data.token;
 
-            console.log(responseData);
+            localStorage.setItem('user-token', token);
+            authContextValue.setUserToken(token);
+
+            navigate('/tasks');
         } catch (err) {
-            console.log(true);
             alert('Something went wrong!');
         }
-
-        // navigate('/tasks');
     };
 
     useEffect(() => {
