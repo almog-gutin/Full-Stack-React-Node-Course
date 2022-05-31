@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-button {
+.redirect-btn {
     width: 200px;
     height: 50px;
 
@@ -25,6 +25,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.redirect-btn:hover {
     background-color: #0261ae;
 }

@@ -23,7 +23,7 @@ const PageNotFound = () => {
         <main className="page-not-found">
             <h1>404</h1>
 
-            <button type="button" onClick={handleClick}>
+            <button type="button" className="redirect-btn" onClick={handleClick}>
                 Go Back Home
             </button>
         </main>

@@ -1,11 +1,40 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './sidebar.styles.css';
 
 import { AuthContext } from '../../../contexts/Auth.context';
 
 const Sidebar = (props) => {
+    const navigate = useNavigate();
+
     const authContextValue = useContext(AuthContext);
+
+    const handleLogout = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/users/logout', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${authContextValue.userToken}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error();
+            }
+
+            const responseObj = await response.json();
+            const message = responseObj.message;
+            alert(message);
+
+            localStorage.removeItem('user-token');
+            authContextValue.setUserToken(null);
+            props.hideSidebar();
+            navigate('/');
+        } catch (err) {
+            alert('Something went wrong!');
+        }
+    };
 
     return (
         <div className={`backdrop ${props.className}`}>
@@ -31,15 +60,15 @@ const Sidebar = (props) => {
 
                     {authContextValue.userToken && (
                         <li className="sidebar-item">
-                            <Link to="" onClick={props.hideSidebar}>
+                            <button type="button" className="logout-btn" onClick={handleLogout}>
                                 Logout
-                            </Link>
+                            </button>
                         </li>
                     )}
 
                     {authContextValue.userToken && (
                         <li className="sidebar-item">
-                            <Link to="" onClick={props.hideSidebar}>
+                            <Link to="/tasks" onClick={props.hideSidebar}>
                                 Tasks
                             </Link>
                         </li>

@@ -62,3 +62,13 @@
     color: #0070c9;
     cursor: pointer;
 }
+
+.sidebar-item .logout-btn {
+    padding: 0;
+
+    color: #0070c9;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
