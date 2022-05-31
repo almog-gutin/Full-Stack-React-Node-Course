@@ -10,6 +10,14 @@ const tasksReducer = (state, action) => {
 
             return updatedState;
         }
+        case tasksActionTypes.ADD_TASK: {
+            const task = action.payload.task;
+
+            const updatedState = [...state, task];
+            // updatedState.push(task);
+
+            return updatedState;
+        }
         default:
             return state;
     }
