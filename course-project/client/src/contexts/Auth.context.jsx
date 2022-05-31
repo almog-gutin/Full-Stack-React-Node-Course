@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 // Creating a context fro the application
 export const AuthContext = createContext();
 
-// Creatinga component for accessing the context inside the app
+// Creating component for accessing the context inside the app
 // It is faster to pull the data from the context rather than pulling
 // from localStorage/sessionStorage
 const AuthContextProvider = (props) => {
