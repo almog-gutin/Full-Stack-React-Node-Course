@@ -1,0 +1,41 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    height: 80px;
+    padding: 16px;
+
+    background-color: #1d1d1f;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+.main-header h1 a {
+    color: white;
+}
+
+.main-header .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 40px;
+    height: 100%;
+    padding: 6px;
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-btn .bar {
+    width: 100%;
+    height: 2px;
+
+    background-color: #ffffff;
+    border-radius: 5px;
+}

@@ -1,0 +1,12 @@
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    min-height: calc(100vh - 80px);
+}
+
+.signup-page-card {
+    height: 700px;
+}

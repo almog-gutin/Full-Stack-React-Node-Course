@@ -1,0 +1,29 @@
+.book-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 350px;
+    min-height: 400px;
+
+    cursor: pointer;
+}
+
+.book-container h3,
+.book-container h4 {
+    margin: 0;
+    text-align: center;
+}
+
+.book-container img {
+    width: 100%;
+}
+
+@media (min-width: 1000px) {
+    .book-container {
+        width: 200px;
+    }
+}
