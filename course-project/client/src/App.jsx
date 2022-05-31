@@ -10,25 +10,28 @@ import PageNotFound from './pages/page-not-found/PageNotFound.component';
 import TasksPage from './pages/tasks-page/TasksPage.component';
 
 import AuthContextProvider from './contexts/Auth.context';
+import TasksContextProvider from './contexts/Tasks.context';
 
 const App = () => {
     return (
         <BrowserRouter>
             <AuthContextProvider>
-                <Header />
+                <TasksContextProvider>
+                    <Header />
 
-                <Routes>
-                    <Route path="" element={<HomePage />} />
+                    <Routes>
+                        <Route path="" element={<HomePage />} />
 
-                    <Route path="login" element={<LoginPage />} />
-                    <Route path="signup" element={<SignupPage />} />
+                        <Route path="login" element={<LoginPage />} />
+                        <Route path="signup" element={<SignupPage />} />
 
-                    <Route path="tasks" element={<TasksPage />} />
+                        <Route path="tasks" element={<TasksPage />} />
 
-                    <Route path="*" element={<PageNotFound />} />
-                </Routes>
+                        <Route path="*" element={<PageNotFound />} />
+                    </Routes>
 
-                <Footer />
+                    <Footer />
+                </TasksContextProvider>
             </AuthContextProvider>
         </BrowserRouter>
     );

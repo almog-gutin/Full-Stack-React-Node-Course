@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState, useReducer } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './tasks-page.styles.css';
 
 import { AuthContext } from '../../contexts/Auth.context';
+import { TasksContext } from '../../contexts/Tasks.context';
 
-import tasksReducer, { TASKS_INITIAL_STATE } from '../../reducers/tasks.reducer';
 import { initTasksAction } from '../../actions/tasks.actions';
 
 import Loader from '../../components/shared/loader/Loader.component';
@@ -15,8 +15,7 @@ const TasksPage = () => {
     const navigate = useNavigate();
 
     const authContextValue = useContext(AuthContext);
-
-    const [tasksState, dispatchTasksState] = useReducer(tasksReducer, TASKS_INITIAL_STATE);
+    const tasksContextValue = useContext(TasksContext);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -35,10 +34,9 @@ const TasksPage = () => {
 
                 const responseObj = await response.json();
                 const tasks = responseObj.data.tasks;
-                console.log(tasks);
 
                 const action = initTasksAction(tasks);
-                dispatchTasksState(action);
+                tasksContextValue.dispatchTasksState(action);
 
                 setTimeout(() => {
                     setIsLoading(false);
