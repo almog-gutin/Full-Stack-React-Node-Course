@@ -3,6 +3,8 @@ import './tasks-container.styles.css';
 
 import { TasksContext } from '../../../contexts/Tasks.context';
 
+import Task from './task/Task.component';
+
 const TasksContainer = () => {
     const tasksContextValue = useContext(TasksContext);
 
@@ -12,18 +14,7 @@ const TasksContainer = () => {
                 <div className="empty-list">Your list is empty</div>
             ) : (
                 tasksContextValue.tasksState.map((task) => {
-                    console.log(task);
-                    return (
-                        <div className="task-container">
-                            <h3 className="task-title">{task.description}</h3>
-
-                            <div className="btn-container">
-                                <button className="update-btn">Update</button>
-
-                                <button className="delete-btn">Delete</button>
-                            </div>
-                        </div>
-                    );
+                    return <Task id={task._id} description={task.description} isCompleted={task.isCompleted} />;
                 })
             )}
         </ul>
