@@ -18,6 +18,22 @@ const tasksReducer = (state, action) => {
 
             return updatedState;
         }
+        case tasksActionTypes.UPDATE_TASK: {
+            const index = action.payload.index;
+            const updatedIsCompleted = action.payload.isCompleted;
+
+            const updatedState = [...state];
+            updatedState[index].isCompleted = updatedIsCompleted;
+
+            return updatedState;
+        }
+        case tasksActionTypes.DELETE_TASK: {
+            const taskID = action.payload.taskID;
+
+            const updatedState = state.filter((task) => task._id !== taskID);
+
+            return updatedState;
+        }
         default:
             return state;
     }

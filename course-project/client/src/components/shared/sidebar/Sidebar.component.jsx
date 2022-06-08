@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './sidebar.styles.css';
+import environments from '../../../environments/environments';
 
 import { AuthContext } from '../../../contexts/Auth.context';
+
+const API_URL = environments.API_URL;
 
 const Sidebar = (props) => {
     const navigate = useNavigate();
@@ -12,7 +15,7 @@ const Sidebar = (props) => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('http://localhost:3000/users/logout', {
+            const response = await fetch(`${API_URL}/users/logout`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${authContextValue.userToken}`,

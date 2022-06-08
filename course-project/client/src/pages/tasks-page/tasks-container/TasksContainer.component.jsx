@@ -13,8 +13,15 @@ const TasksContainer = () => {
             {tasksContextValue.tasksState.length === 0 ? (
                 <div className="empty-list">Your list is empty</div>
             ) : (
-                tasksContextValue.tasksState.map((task) => {
-                    return <Task id={task._id} description={task.description} isCompleted={task.isCompleted} />;
+                tasksContextValue.tasksState.map((task, index) => {
+                    return (
+                        <Task
+                            id={task._id}
+                            description={task.description}
+                            isCompleted={task.isCompleted}
+                            index={index}
+                        />
+                    );
                 })
             )}
         </ul>

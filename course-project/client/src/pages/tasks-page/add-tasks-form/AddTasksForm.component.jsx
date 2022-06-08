@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react';
 import './add-tasks-form.styles.css';
+import environments from '../../../environments/environments';
 
 import { AuthContext } from '../../../contexts/Auth.context';
 import { TasksContext } from '../../../contexts/Tasks.context';
 import { addTaskAction } from '../../../actions/tasks.actions';
+
+const API_URL = environments.API_URL;
 
 const AddTasksForm = () => {
     const authContextValue = useContext(AuthContext);
@@ -30,7 +33,7 @@ const AddTasksForm = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/tasks/new', {
+            const response = await fetch(`${API_URL}/tasks/new`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

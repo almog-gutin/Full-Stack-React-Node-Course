@@ -2,6 +2,7 @@ import React, { useReducer, useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import isEmail from 'validator/lib/isEmail';
 import './login-page.styles.css';
+import environments from '../../environments/environments';
 
 import { AuthContext } from '../../contexts/Auth.context';
 
@@ -13,6 +14,8 @@ import FormInputContainer from '../../components/form/form-input-container/FormI
 import Loader from '../../components/shared/loader/Loader.component';
 
 import { doesStringContainANumber } from '../../utils/string.utils';
+
+const API_URL = environments.API_URL;
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -88,7 +91,7 @@ const LoginPage = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/users/login', {
+            const response = await fetch(`${API_URL}/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
